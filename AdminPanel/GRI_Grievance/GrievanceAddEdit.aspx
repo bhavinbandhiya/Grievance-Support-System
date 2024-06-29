@@ -61,7 +61,7 @@
                                 </div>
 
                             </div>
-                            <div class="form-group">
+                            <div class="form-group hidden" >
                                 <label class="col-md-3 control-label">
                                     <asp:Label ID="lblUserID" runat="server" Text="User"></asp:Label>
                                 </label>

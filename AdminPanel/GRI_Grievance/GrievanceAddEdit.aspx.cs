@@ -141,6 +141,8 @@ public partial class AdminPanel_GrievanceAddEdit : System.Web.UI.Page
 
                 if (ddlUserID.SelectedIndex > 0)
                     entGrievance.UserID = Convert.ToInt32(ddlUserID.SelectedValue);
+                else
+                    entGrievance.UserID = 1;
 
                 if (txtGrievanceType.Text.ToString() != String.Empty)
                     entGrievance.GrievanceType = txtGrievanceType.Text.ToString();
