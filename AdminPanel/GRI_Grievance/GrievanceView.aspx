@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPageView.master" AutoEventWireup="true" CodeFile="GrievanceView.aspx.cs" Inherits="AdminPanel_GrievanceView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPageViewIFrame.master" AutoEventWireup="true" CodeFile="GrievanceView.aspx.cs" Inherits="AdminPanel_GrievanceView" %>
 
 <asp:Content ID="cnthead" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -7,66 +7,44 @@
     <div class="portlet light">
         <div class="portlet-title">
             <div class="caption">
-                <asp:label skinid="lblViewFormHeaderIcon" id="lblViewFormHeaderIcon" runat="server"></asp:label>
-                <span class="caption-subject font-green-sharp bold uppercase">GrievanceSystem Details</span>
+                <asp:Label SkinID="lblViewFormHeaderIcon" ID="lblViewFormHeaderIcon" runat="server"></asp:Label>
+                <span class="caption-subject font-green-sharp bold uppercase">Grievance Activities</span>
             </div>
             <div class="tools">
-                <asp:hyperlink id="CloseButton" skinid="hlClosemymodal" runat="server" clientidmode="Static"></asp:hyperlink>
+                <asp:HyperLink ID="CloseButton" SkinID="hlClosemymodal" runat="server" ClientIDMode="Static"></asp:HyperLink>
             </div>
         </div>
-        <div class="portlet-body form">
-            <div class="form-horizontal" role="form">
-                <table class="table table-bordered table-advance table-hover">
-                    <tr>
-                        <td class="TDDarkView">
-                            <asp:label id="lblEntryTime_XXXXX" text="Entry Time With Day Name" runat="server"></asp:label>
-                        </td>
-                        <td>
-                            <asp:label id="lblEntryTime" runat="server"></asp:label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="TDDarkView">
-                            <asp:label id="lblEmotionEntry_XXXXX" text="Emotion When Entry GrievanceSystem" runat="server"></asp:label>
-                        </td>
-                        <td>
-                            <asp:label id="lblEmotionEntry" runat="server"></asp:label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="TDDarkView">
-                            <asp:label id="lblEmotionExit_XXXXX" text="Emotion When Exit GrievanceSystem" runat="server"></asp:label>
-                        </td>
-                        <td>
-                            <asp:label id="lblEmotionExit" runat="server"></asp:label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="TDDarkView">
-                            <asp:label id="lblEmotionSLHIT_XXXXX" text="Emotion When SL Hit" runat="server"></asp:label>
-                        </td>
-                        <td>
-                            <asp:label id="lblEmotionSLHIT" runat="server"></asp:label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="TDDarkView">
-                            <asp:label id="lblLearningFromGrievanceSystem_XXXXX" text="Learning From This GrievanceSystem" runat="server"></asp:label>
-                        </td>
-                        <td>
-                            <asp:label id="lblLearningFromGrievanceSystem" runat="server"></asp:label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="TDDarkView">
-                            <asp:label id="lblRemarks_XXXXX" text="Remarks" runat="server"></asp:label>
-                        </td>
-                        <td>
-                            <asp:label id="lblRemarks" runat="server"></asp:label>
-                        </td>
-                    </tr>
-
-                </table>
+        <div class="portlet-body">
+            <div class="timeline">
+                <asp:Repeater ID="rpGrievanceActivity" runat="server">
+                    <ItemTemplate>
+                        <div class="timeline-item">
+                            <div class="timeline-badge">
+                                <div class="timeline-icon">
+                                    <i class="icon-user font-green-haze"></i>
+                                </div>
+                            </div>
+                            <div class="timeline-body">
+                                <div class="timeline-body-arrow"></div>
+                                <div class="timeline-body-head">
+                                    <div class="timeline-body-head-caption">
+                                        <span class="timeline-body-alerttitle font-red-intense">Status update <b>: <%# Eval("GrievanceStatus") %></b> </span>
+                                        <span class="timeline-body-time font-grey-cascade">at <%# Eval("Modified") %></span>
+                                    </div>
+                                    <div class="timeline-body-head-actions">
+                                        <div class="btn-group">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-body-content">
+                                    <span class="font-grey-cascade">Your Grieviance Status has been updated by 
+                                                            <a href="javascript:;"><%# Eval("Username") %></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
     </div>
@@ -75,7 +53,8 @@
 <asp:Content ID="cntScripts" ContentPlaceHolderID="cphScripts" runat="Server">
     <script>
         $(document).keyup(function (e) {
-            if (e.keyCode == 27) {;
+            if (e.keyCode == 27) {
+                ;
                 $("#CloseButton").trigger("click");
             }
         });
