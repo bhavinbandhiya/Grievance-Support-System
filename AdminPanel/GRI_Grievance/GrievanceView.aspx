@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPageViewIFrame.master" AutoEventWireup="true" CodeFile="GrievanceView.aspx.cs" Inherits="AdminPanel_GrievanceView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPageView.master" AutoEventWireup="true" CodeFile="GrievanceView.aspx.cs" Inherits="AdminPanel_GrievanceView" %>
 
 <asp:Content ID="cnthead" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>

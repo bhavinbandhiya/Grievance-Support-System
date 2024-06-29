@@ -262,8 +262,7 @@
                                                                 <asp:Label ID="lblStatus" runat="server" CssClass='<%# GrievanceSystem.CommonFunctions.GetGrievanceStatusCSSClassLabel(Convert.ToString(Eval("Status"))) %>' Text='<%# Eval("Status") %>'></asp:Label>
                                                             </td>
                                                             <td class="text-nowrap text-center">
-
-                                                                <asp:HyperLink ID="hlView" NavigateUrl='<%# "~/AdminPanel/GRI_Grievance/GrievanceView.aspx?GrievanceID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server" CssClass="btn grey-cascade btn-xs btn-circle modalButton">
+                                                                <asp:HyperLink ID="hlView" NavigateUrl='<%# "~/AdminPanel/GRI_Grievance/GrievanceView.aspx?GrievanceID=" + (Eval("GrievanceID").ToString()) %>' data-target="#viewLarge" data-toggle="modal" runat="server" CssClass="btn grey-cascade btn-xs btn-circle modalButton">
 																<i class="fa fa-file"></i></asp:HyperLink>
                                                                 <asp:HyperLink ID="hlEdit" NavigateUrl='<%# "~/AdminPanel/GRI_Grievance/GrievanceAddEdit.aspx?GrievanceID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceID").ToString()) %>' runat="server" CssClass="btn btn-xs btn-circle blue-soft tooltips">
 																	<i class="fa fa-edit"></i>

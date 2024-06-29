@@ -1464,7 +1464,7 @@ namespace GrievanceSystem
 			{
 				cssclass = CSSClass.StatusLabelWarning;
 			}
-			else if (Status == "Resolved")
+			else if (Status == "Completed")
 			{
 				cssclass = CSSClass.StatusLabelSuccess;
 			}
