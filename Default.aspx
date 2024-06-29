@@ -12,13 +12,13 @@
 <body>
     <div class="container">
         <div class="login-container">
+            <h1 class="login-heading">Grievance Support System</h1>
             <h2 class="login-heading">Login</h2>
             <form id="loginForm" runat="server">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
                     <asp:TextBox ID="txtUsername" CssClass="form-control" runat="server" PlaceHolder="Enter User Name"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvUserName" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtUserName" ErrorMessage="Enter UserName"></asp:RequiredFieldValidator>
-
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label">Password</label>

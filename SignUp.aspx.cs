@@ -60,6 +60,12 @@ public partial class SignUp : System.Web.UI.Page
                 if (txtPassword.Text.Trim() == String.Empty)
                     ErrorMsg += "Password is required";
 
+                if (txtEmail.Text.Trim() == String.Empty)
+                    ErrorMsg += "Email is required";
+
+                if (txtConfirmPassword.Text.Trim() == String.Empty)
+                    ErrorMsg += "Confirm Password is required";
+
                 #endregion Validate Controls
 
                 if (ErrorMsg != String.Empty)
@@ -77,6 +83,12 @@ public partial class SignUp : System.Web.UI.Page
 
                 if (txtPassword.Text.Trim() != String.Empty)
                     entSEC_UserENT.Password = Convert.ToString(txtPassword.Text.Trim());
+
+                if (txtEmail.Text.Trim() != String.Empty)
+                    entSEC_UserENT.Email = Convert.ToString(txtEmail.Text.Trim());
+
+                if(ddlDepartmentID.SelectedIndex > 0)
+                    entSEC_UserENT.DepartmentID = Convert.ToInt32(ddlDepartmentID.SelectedValue);
 
                 entSEC_UserENT.Created = DateTime.Now;
 
@@ -108,6 +120,10 @@ public partial class SignUp : System.Web.UI.Page
     {
         txtPassword.Text = String.Empty;
         txtUsername.Text = String.Empty;
+        txtEmail.Text = String.Empty;
+        txtPassword.Text = String.Empty;
+        txtConfirmPassword.Text = String.Empty;
+        ddlDepartmentID.SelectedIndex = 0;
     }
 
     #endregion ClearControl

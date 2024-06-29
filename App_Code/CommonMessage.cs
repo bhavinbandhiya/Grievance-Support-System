@@ -106,7 +106,7 @@ namespace GrievanceSystem
 
         public static string AccountCreated()
         {
-            return "Account Created Successfully.  <b> Now You can Login ! </b>";
+            return "Account created successfully.  <b> Now you can login ! </b>";
         }
 
         public static string DeletedRecord()

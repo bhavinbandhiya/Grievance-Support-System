@@ -19,15 +19,15 @@ namespace GrievanceSystem
 
         #region University Specific Configuration
 
-        public static string DefaultUniversityNameHTML = "Grievance Details";
-        public static string DefaultUniversityShortNameHTML = "Grievance Details";
+        public static string DefaultUniversityNameHTML = "Grievance Support System";
+        public static string DefaultUniversityShortNameHTML = "Grievance Support System";
 
-        public static string DefaultUniversityName = "Grievance Details";
-        public static string DefaultUniversityShortName = "Grievance Details";
+        public static string DefaultUniversityName = "Grievance Support System";
+        public static string DefaultUniversityShortName = "Grievance Support System";
 
-        public static string DefaultCompanyName = "Grievance Details";
+        public static string DefaultCompanyName = "Grievance Support System";
         public static string DefaultLogoPath = "~/GrievanceLogo.jpg";
-        public static string DefaultMISShortName = "Grievance Details";
+        public static string DefaultMISShortName = "Grievance Support System";
 
         #region Default SMS Configuration
 

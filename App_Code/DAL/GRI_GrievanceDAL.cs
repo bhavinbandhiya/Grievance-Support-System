@@ -189,7 +189,7 @@ namespace GrievanceSystemDetails.DAL
 				sqlDB.AddInParameter(dbCMD, "@ToDate", SqlDbType.DateTime, ToDate);
 				sqlDB.AddInParameter(dbCMD, "@Status", SqlDbType.NVarChar, Status);
 				sqlDB.AddInParameter(dbCMD, "@DepartmentID", SqlDbType.Int, DepartmentID);
-				sqlDB.AddInParameter(dbCMD, "@EmployeeID", SqlDbType.DateTime, EmployeeID);
+				sqlDB.AddInParameter(dbCMD, "@EmployeeID", SqlDbType.Int, EmployeeID);
 
 				DataTable dtGRI_Grievance = new DataTable("PR_GRI_Grievance_SelectForGrievanceAdministrator");
 
@@ -214,11 +214,52 @@ namespace GrievanceSystemDetails.DAL
 			}
 		}
 
-		#endregion SelectOperation
+        public DataTable SelectForDepartmentDashboard(SqlInt32 Offset, SqlInt32 PageRecordSize, out int TotalRecords, SqlDateTime FromDate, SqlDateTime ToDate, SqlInt32 UserID, SqlString GrievanceStatus)
+        {
+            TotalRecords = 0;
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_GRI_Grievance_SelectForDepartmentDashboard");
 
-		#region Constructor
+                sqlDB.AddInParameter(dbCMD, "@Offset", SqlDbType.Int, Offset);
+                sqlDB.AddInParameter(dbCMD, "@PageRecordSize", SqlDbType.Int, PageRecordSize);
+                sqlDB.AddOutParameter(dbCMD, "@TotalRecords", SqlDbType.Int, 4);
+                sqlDB.AddInParameter(dbCMD, "@FromDate", SqlDbType.DateTime, FromDate);
+                sqlDB.AddInParameter(dbCMD, "@ToDate", SqlDbType.DateTime, ToDate);
+                sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, UserID);
+                sqlDB.AddInParameter(dbCMD, "@GrievanceStatus", SqlDbType.NVarChar, GrievanceStatus);
 
-		public GRI_GrievanceDAL()
+                DataTable dtGRI_Grievance = new DataTable("PR_GRI_Grievance_SelectForDepartmentDashboard");
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                var unused = DBH.LoadDataTable(sqlDB, dbCMD, dtGRI_Grievance);
+
+                TotalRecords = (int)dbCMD.Parameters["@TotalRecords"].Value;
+
+                return dtGRI_Grievance;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
+
+        #endregion SelectOperation
+
+        #region Constructor
+
+        public GRI_GrievanceDAL()
         {
             // TODO: Add constructor logic here
         }
