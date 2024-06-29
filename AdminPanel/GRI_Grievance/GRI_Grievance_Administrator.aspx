@@ -220,7 +220,10 @@
                                                         <asp:Label ID="lbhSr" runat="server" Text="Sr."></asp:Label>
                                                     </th>
                                                     <th>
-                                                        <asp:Label ID="lbhGrievance" runat="server" Text="Grievance"></asp:Label>
+                                                        <asp:Label ID="lbhGrievance" runat="server" Text="Grievance Type"></asp:Label>
+                                                    </th>
+                                                    <th>
+                                                        <asp:Label ID="Label1" runat="server" Text="Grievance Description"></asp:Label>
                                                     </th>
                                                     <th>
                                                         <asp:Label ID="lbhRaisedBy" runat="server" Text="Raised By"></asp:Label>
@@ -243,11 +246,14 @@
                                                     <ItemTemplate>
                                                         <%-- Table Rows --%>
                                                         <tr class="odd gradeX">
-                                                            <td class="text-center" style="width:25px;">
+                                                            <td class="text-center" style="width: 25px;">
                                                                 <%#Container.ItemIndex+1%>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblGrievance" runat="server" Text='<%# Eval("GrievanceType") %>'></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Description") %>'></asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblRaisedBy" runat="server" Text='<%# Eval("UserName") %>'></asp:Label>
@@ -255,15 +261,12 @@
                                                             <td>
                                                                 <asp:Label ID="lblDepartment" runat="server" Text='<%# Eval("DepartmentName") %>'></asp:Label>
                                                             </td>
-                                                            <td class="text-center" style="width:100px;">
+                                                            <td class="text-center" style="width: 100px;">
                                                                 <asp:Label ID="lblStatus" runat="server" CssClass='<%# GrievanceSystem.CommonFunctions.GetGrievanceStatusCSSClassLabel(Convert.ToString(Eval("Status"))) %>' Text='<%# Eval("Status") %>'></asp:Label>
                                                             </td>
-                                                            <td  class="text-center" style="width:100px;">
-                                                                <asp:HyperLink ID="hlView" NavigateUrl='<%# "~/AdminPanel/GrievanceSystemDetailsView.aspx?GrievanceID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server" CssClass="btn grey-cascade btn-xs btn-circle modalButton">
-																<i class="fa fa-file"></i></asp:HyperLink>
-                                                                <asp:HyperLink ID="hlEdit" NavigateUrl='<%# "~/AdminPanel/GrievanceSystemDetaillsAddEdit.aspx?GrievanceID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceID").ToString()) %>' runat="server" CssClass="btn btn-xs btn-circle blue-soft tooltips">
-																	<i class="fa fa-edit"></i>
-                                                                </asp:HyperLink>
+                                                            <td class="text-center" style="width: 100px;">
+                                                                <asp:HyperLink ID="hlView" NavigateUrl='<%# "~/AdminPanel/GRI_Grievance_Administrator_View.aspx?GrievanceID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server" CssClass="btn btn-xs btn-circle blue-soft modalButton">
+																<i class="fa fa-edit"></i></asp:HyperLink>
                                                                 <asp:LinkButton ID="lbtnDelete" runat="server"
                                                                     OnClientClick="javascript:return GNConfirmYesNoLinkButton(this,'Are you sure you want to delete record ? ');"
                                                                     CommandName="DeleteRecord"

@@ -74,9 +74,7 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
     {
         CommonFunctions.FillDropDownListStatus(ddlStatus);
         CommonFillMethods.FillDropDownListDepartment(ddlDepartmentID);
-		
-
-
+		CommonFunctions.FillDropDownListBlank(ddlEmployeeID, "Employee");
 
 		CommonFunctions.GetDropDownPageSize(ddlPageSizeBottom);
         ddlPageSizeBottom.SelectedValue = PageRecordSize.ToString();
@@ -408,6 +406,18 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
         Div_ExportOption.Visible = false;
         lblRecordInfoTop.Text = CommonMessage.NoRecordFound();
     }
-    #endregion 22.0 ClearControls
+	#endregion 22.0 ClearControls
 
+
+	protected void ddlDepartmentID_SelectedIndexChanged(object sender, EventArgs e)
+	{
+        if(ddlDepartmentID.SelectedIndex >0)
+        {
+            CommonFillMethods.FillDropDownListUserByDepartment(ddlEmployeeID, Convert.ToInt32(ddlDepartmentID));
+        }
+        else
+        {
+            CommonFunctions.FillDropDownListBlank(ddlEmployeeID, "Employee");
+        }
+	}
 }
