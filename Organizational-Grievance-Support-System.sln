@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Organizational-Grievance-Support-System", ".", "{160B6B61-CC38-42F0-8745-3954DDE3712C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63892"
+		Debug.AspNetCompiler.PhysicalPath = "..\Organizational-Grievance-Support-System\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63892\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63892"
+		Release.AspNetCompiler.PhysicalPath = "..\Organizational-Grievance-Support-System\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63892\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63892"
+		SlnRelativePath = "..\Organizational-Grievance-Support-System\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{160B6B61-CC38-42F0-8745-3954DDE3712C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160B6B61-CC38-42F0-8745-3954DDE3712C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CBB9FC7-0A12-4B65-B5BD-21B896B3AC8E}
+	EndGlobalSection
+EndGlobal

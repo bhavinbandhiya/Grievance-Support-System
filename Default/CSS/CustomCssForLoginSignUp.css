@@ -1,0 +1,58 @@
+﻿
+body {
+    background: linear-gradient(to bottom, #00416A, #E4E5E6);
+}
+
+.container {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 150px;
+    padding: 40px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-heading {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #666;
+}
+
+.form-control {
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: none;
+}
+
+.btn-login {
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-create-account {
+    margin-top: 10px;
+    color: #666;
+}
+
+    .btn-create-account:hover {
+        color: #333;
+        text-decoration: underline;
+    }
