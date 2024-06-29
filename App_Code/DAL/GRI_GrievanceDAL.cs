@@ -180,11 +180,47 @@ namespace GrievanceSystemDetails.DAL
             }
         }
 
-        #endregion SelectOperation
+		public DataTable SelectForGrievanceAdministrator(SqlDateTime FromDate, SqlDateTime ToDate,SqlString Status,SqlInt32 DepartmentID, SqlInt32 EmployeeID)
+		{
+			try
+			{
+				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_GRI_Grievance_SelectForGrievanceAdministrator");
 
-        #region Constructor
+				sqlDB.AddInParameter(dbCMD, "@FromDate", SqlDbType.DateTime, FromDate);
+				sqlDB.AddInParameter(dbCMD, "@ToDate", SqlDbType.DateTime, ToDate);
+				sqlDB.AddInParameter(dbCMD, "@Status", SqlDbType.NVarChar, Status);
+				sqlDB.AddInParameter(dbCMD, "@DepartmentID", SqlDbType.Int, DepartmentID);
+				sqlDB.AddInParameter(dbCMD, "@EmployeeID", SqlDbType.DateTime, EmployeeID);
 
-        public GRI_GrievanceDAL()
+				DataTable dtGRI_Grievance = new DataTable("PR_GRI_Grievance_SelectForGrievanceAdministrator");
+
+				DataBaseHelper DBH = new DataBaseHelper();
+				var unused = DBH.LoadDataTable(sqlDB, dbCMD, dtGRI_Grievance);
+
+				return dtGRI_Grievance;
+			}
+			catch (SqlException sqlex)
+			{
+				Message = SQLDataExceptionMessage(sqlex);
+				if (SQLDataExceptionHandler(sqlex))
+					throw;
+				return null;
+			}
+			catch (Exception ex)
+			{
+				Message = ExceptionMessage(ex);
+				if (ExceptionHandler(ex))
+					throw;
+				return null;
+			}
+		}
+
+		#endregion SelectOperation
+
+		#region Constructor
+
+		public GRI_GrievanceDAL()
         {
             // TODO: Add constructor logic here
         }

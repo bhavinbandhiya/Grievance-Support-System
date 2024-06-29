@@ -3,6 +3,7 @@ using GrievanceSystemDetails.ENT;
 using System;
 using System.Data;
 using System.Data.SqlTypes;
+using System.IdentityModel.Protocols.WSTrust;
 
 namespace GrievanceSystemDetails.BAL
 {
@@ -113,6 +114,22 @@ namespace GrievanceSystemDetails.BAL
         //        return null;
         //    }
         //}
+
+        public DataTable SelectForGrievanceAdministrator(SqlDateTime FromDate, SqlDateTime ToDate, SqlString Status, SqlInt32 DepartmentID, SqlInt32 EmployeeID)
+		{
+            GRI_GrievanceDAL dalGRI_Grievance = new GRI_GrievanceDAL();
+            DataTable dtGRI_Grievance = dalGRI_Grievance.SelectForGrievanceAdministrator(FromDate, ToDate, Status, DepartmentID, EmployeeID);
+
+			if (dtGRI_Grievance != null)
+            {
+                return dtGRI_Grievance;
+            }
+            else
+            {
+                this.Message = dalGRI_Grievance.Message;
+                return null;
+            }
+        }
 
         #endregion SelectOperation
 
