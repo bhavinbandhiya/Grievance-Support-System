@@ -1435,20 +1435,26 @@ namespace GrievanceSystem
                 return DayOfWeek.Saturday;
         }
 
-        public static void FillDropDownListDayOfWeek(DropDownList ddl)
+        public static void FillDropDownListStatus(DropDownList ddl)
         {
             ddl.Items.Clear();
-            ddl.Items.Insert(0, new ListItem("Select Day Name", "-99"));
-            ddl.Items.Insert(1, new ListItem("Sunday", "Sunday"));
-            ddl.Items.Insert(2, new ListItem("Monday", "Monday"));
-            ddl.Items.Insert(3, new ListItem("Tuesday", "Tuesday"));
-            ddl.Items.Insert(4, new ListItem("Wednesday", "Wednesday"));
-            ddl.Items.Insert(5, new ListItem("Thursday", "Thursday"));
-            ddl.Items.Insert(6, new ListItem("Friday", "Friday"));
-            ddl.Items.Insert(7, new ListItem("Saturday", "Saturday"));
+            ddl.Items.Insert(0, new ListItem("Select Status", "-99"));
+            ddl.Items.Insert(1, new ListItem("Pending", "Pending"));
+            ddl.Items.Insert(2, new ListItem("Resolved", "Resolved"));
+            ddl.Items.Insert(3, new ListItem("Assigned", "Assigned"));
+            ddl.Items.Insert(4, new ListItem("Rejected", "Rejected"));
         }
 
-        public static void FillDropDownListMonthInt(DropDownList ddl)
+		public static void FillDropDownListGrievanceStatus(DropDownList ddl)
+		{
+			ddl.Items.Clear();
+			ddl.Items.Insert(0, new ListItem("Select Status", "-99"));
+			ddl.Items.Insert(1, new ListItem("Pending", "Pending"));
+			ddl.Items.Insert(2, new ListItem("Resolved", "Resolved"));
+			ddl.Items.Insert(3, new ListItem("Assigned", "Assigned"));
+			ddl.Items.Insert(4, new ListItem("Rejected", "Rejected"));
+		}
+		public static void FillDropDownListMonthInt(DropDownList ddl)
         {
             ddl.Items.Insert(0, new ListItem("Select No of Month", "-99"));
             for (int i = 1; i <= 11; i++)
