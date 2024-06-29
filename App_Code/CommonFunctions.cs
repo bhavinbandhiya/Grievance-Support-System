@@ -1445,7 +1445,16 @@ namespace GrievanceSystem
             ddl.Items.Insert(4, new ListItem("Rejected", "Rejected"));
         }
 
-        public static void FillDropDownListMonthInt(DropDownList ddl)
+		public static void FillDropDownListGrievanceStatus(DropDownList ddl)
+		{
+			ddl.Items.Clear();
+			ddl.Items.Insert(0, new ListItem("Select Status", "-99"));
+			ddl.Items.Insert(1, new ListItem("Pending", "Pending"));
+			ddl.Items.Insert(2, new ListItem("Resolved", "Resolved"));
+			ddl.Items.Insert(3, new ListItem("Assigned", "Assigned"));
+			ddl.Items.Insert(4, new ListItem("Rejected", "Rejected"));
+		}
+		public static void FillDropDownListMonthInt(DropDownList ddl)
         {
             ddl.Items.Insert(0, new ListItem("Select No of Month", "-99"));
             for (int i = 1; i <= 11; i++)
