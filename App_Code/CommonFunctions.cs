@@ -1454,6 +1454,31 @@ namespace GrievanceSystem
 			ddl.Items.Insert(3, new ListItem("Assigned", "Assigned"));
 			ddl.Items.Insert(4, new ListItem("Rejected", "Rejected"));
 		}
+
+
+		public static string GetGrievanceStatusCSSClassLabel(String Status)
+		{
+
+			String cssclass = String.Empty;
+			if (Status == "Pending")
+			{
+				cssclass = CSSClass.StatusLabelWarning;
+			}
+			else if (Status == "Resolved")
+			{
+				cssclass = CSSClass.StatusLabelSuccess;
+			}
+			else if (Status == "Assigned")
+			{
+				cssclass = CSSClass.StatusLabelInfo;
+			}
+			else if (Status == "Rejected")
+			{
+				cssclass = CSSClass.StatusLabelDanger;
+			}
+
+			return cssclass;
+		}
 		public static void FillDropDownListMonthInt(DropDownList ddl)
         {
             ddl.Items.Insert(0, new ListItem("Select No of Month", "-99"));

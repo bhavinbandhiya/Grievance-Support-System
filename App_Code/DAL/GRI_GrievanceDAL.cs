@@ -191,7 +191,7 @@ namespace GrievanceSystemDetails.DAL
 				sqlDB.AddInParameter(dbCMD, "@ToDate", SqlDbType.DateTime, ToDate);
 				sqlDB.AddInParameter(dbCMD, "@Status", SqlDbType.NVarChar, Status);
 				sqlDB.AddInParameter(dbCMD, "@DepartmentID", SqlDbType.Int, DepartmentID);
-				sqlDB.AddInParameter(dbCMD, "@EmployeeID", SqlDbType.DateTime, EmployeeID);
+				sqlDB.AddInParameter(dbCMD, "@EmployeeID", SqlDbType.Int, EmployeeID);
 
 				DataTable dtGRI_Grievance = new DataTable("PR_GRI_Grievance_SelectForGrievanceAdministrator");
 

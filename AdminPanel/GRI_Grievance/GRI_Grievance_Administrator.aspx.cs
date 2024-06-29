@@ -45,7 +45,6 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
 
             lblSearchHeader.Text = CV.SearchHeaderText;
             lblSearchResultHeader.Text = CV.SearchResultHeaderText;
-            lblDashBoard.Text = "DashBoard";
             upr.DisplayAfter = CV.UpdateProgressDisplayAfter;
 
             #endregion 12.2 Set Default Value
@@ -74,8 +73,12 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
     private void FillDropDownList()
     {
         CommonFunctions.FillDropDownListStatus(ddlStatus);
+        CommonFillMethods.FillDropDownListDepartment(ddlDepartmentID);
+		
 
-        CommonFunctions.GetDropDownPageSize(ddlPageSizeBottom);
+
+
+		CommonFunctions.GetDropDownPageSize(ddlPageSizeBottom);
         ddlPageSizeBottom.SelectedValue = PageRecordSize.ToString();
     }
 
@@ -132,9 +135,8 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
 
         int TotalRecords = 0;
         DataTable dt = balGRI_Grievance.SelectForGrievanceAdministrator(FromDate, ToDate, Status, DepartmentID, EmployeeID);
-
-		
-        int TotalPages;
+	
+		int TotalPages;
         #endregion Count For DashBoard
 
         if (PageRecordSize == 0 && dt.Rows.Count > 0)
@@ -148,8 +150,6 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
         if (dt != null && dt.Rows.Count > 0)
         {
             Div_SearchResult.Visible = true;
-            Div_SearchResultForDashBoard.Visible = true;
-            lblRecordInfoTopForDasboard.Visible = false;
             Div_ExportOption.Visible = true;
             rpData.DataSource = dt;
             rpData.DataBind();
@@ -187,7 +187,6 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
             Div_SearchResult.Visible = false;
             //Div_SearchResultForDashBoard.Visible = false;
             lbtnExportExcel.Visible = false;
-            lblRecordInfoTopForDasboard.Visible = true;
 
             ViewState["TotalPages"] = 0;
             ViewState["CurrentPage"] = 1;
@@ -197,7 +196,6 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
 
        
             lblRecordInfoTop.Text = CommonMessage.NoRecordFound();
-            lblRecordInfoTopForDasboard.Text = CommonMessage.NoRecordFound();
 
             CommonFunctions.BindPageList(0, 0, PageNo, PageDisplaySize, DisplayIndex, rpPagination, liPrevious, lbtnPrevious, liFirstPage, lbtnFirstPage, liNext, lbtnNext, liLastPage, lbtnLastPage);
 
@@ -407,12 +405,9 @@ public partial class AdminPanel_GRI_Grievance_List : System.Web.UI.Page
 
         CommonFunctions.BindEmptyRepeater(rpData);
         Div_SearchResult.Visible = false;
-        Div_SearchResultForDashBoard.Visible = false;
         Div_ExportOption.Visible = false;
         lblRecordInfoTop.Text = CommonMessage.NoRecordFound();
-        lblRecordInfoTopForDasboard.Visible = true;
     }
-
     #endregion 22.0 ClearControls
 
 }

@@ -3,6 +3,7 @@
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <style>
         body {
             background-color: #f5f5f5;
@@ -210,12 +211,6 @@
                         <div class="portlet-body">
                             <div class="row" runat="server" id="Div_SearchResult" visible="true">
                                 <div class="col-md-12">
-                                    <div class="portlet light margin-top-10">
-                                        <div class="caption">
-                                            <asp:Label ID="lblPndingGrievance" SkinID="lblPndingGrievanceText" Text="Pnding Grievance" CssClass="text-danger uppercase bold" runat="server"></asp:Label>
-                                            <label class="control-label">&nbsp;</label>
-                                        </div>
-                                    </div>
                                     <div id="TableContent">
                                         <table class="table table-bordered table-advanced table-striped table-hover" id="sample_1">
                                             <%-- Table Header --%>
@@ -233,7 +228,7 @@
                                                     <th>
                                                         <asp:Label ID="lbhDepartment" runat="server" Text="Department"></asp:Label>
                                                     </th>
-                                                    <th class="text-right">
+                                                    <th class="text-center">
                                                         <asp:Label ID="lbhStatus" runat="server" Text="Status"></asp:Label>
                                                     </th>
                                                     <th class="nosortsearch text-nowrap text-center">
@@ -248,17 +243,33 @@
                                                     <ItemTemplate>
                                                         <%-- Table Rows --%>
                                                         <tr class="odd gradeX">
-                                                            <asp:HyperLink ID="hlView" NavigateUrl='<%# "~/AdminPanel/GrievanceSystemDetailsView.aspx?GrievanceSystemID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceSystemID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server" CssClass="btn grey-cascade btn-xs btn-circle modalButton">
+                                                            <td class="text-center" style="width:25px;">
+                                                                <%#Container.ItemIndex+1%>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblGrievance" runat="server" Text='<%# Eval("GrievanceType") %>'></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblRaisedBy" runat="server" Text='<%# Eval("UserName") %>'></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblDepartment" runat="server" Text='<%# Eval("DepartmentName") %>'></asp:Label>
+                                                            </td>
+                                                            <td class="text-center" style="width:100px;">
+                                                                <asp:Label ID="lblStatus" runat="server" CssClass='<%# GrievanceSystem.CommonFunctions.GetGrievanceStatusCSSClassLabel(Convert.ToString(Eval("Status"))) %>' Text='<%# Eval("Status") %>'></asp:Label>
+                                                            </td>
+                                                            <td  class="text-center" style="width:100px;">
+                                                                <asp:HyperLink ID="hlView" NavigateUrl='<%# "~/AdminPanel/GrievanceSystemDetailsView.aspx?GrievanceID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server" CssClass="btn grey-cascade btn-xs btn-circle modalButton">
 																<i class="fa fa-file"></i></asp:HyperLink>
-                                                            <asp:HyperLink ID="hlEdit" NavigateUrl='<%# "~/AdminPanel/GrievanceSystemDetaillsAddEdit.aspx?GrievanceSystemID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceSystemID").ToString()) %>' runat="server" CssClass="btn btn-xs btn-circle blue-soft tooltips">
+                                                                <asp:HyperLink ID="hlEdit" NavigateUrl='<%# "~/AdminPanel/GrievanceSystemDetaillsAddEdit.aspx?GrievanceID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceID").ToString()) %>' runat="server" CssClass="btn btn-xs btn-circle blue-soft tooltips">
 																	<i class="fa fa-edit"></i>
-                                                            </asp:HyperLink>
-                                                            <asp:LinkButton ID="lbtnDelete" runat="server"
-                                                                OnClientClick="javascript:return GNConfirmYesNoLinkButton(this,'Are you sure you want to delete record ? ');"
-                                                                CommandName="DeleteRecord"
-                                                                CommandArgument='<%#Eval("GrievanceSystemID") %>' CssClass="btn red-sunglo btn-circle btn-xs tooltips">
+                                                                </asp:HyperLink>
+                                                                <asp:LinkButton ID="lbtnDelete" runat="server"
+                                                                    OnClientClick="javascript:return GNConfirmYesNoLinkButton(this,'Are you sure you want to delete record ? ');"
+                                                                    CommandName="DeleteRecord"
+                                                                    CommandArgument='<%#Eval("GrievanceID") %>' CssClass="btn red-sunglo btn-circle btn-xs tooltips">
 																	<i class="fas fa-trash"></i>
-                                                            </asp:LinkButton>
+                                                                </asp:LinkButton>
                                                             </td>
                                                         </tr>
                                                         <%-- END Table Rows --%>
@@ -314,224 +325,7 @@
                 </div>
             </div>
 
-            <div>
-
-                <asp:Chart ID="chart1" runat="server" Height="500px" Width="900px">
-                    <Series>
-                        <asp:Series Name="ProfitLossSeries" ChartType="Candlestick" XValueType="DateTime" YValueType="Double">
-                        </asp:Series>
-                    </Series>
-                    <ChartAreas>
-                        <asp:ChartArea Name="ChartArea1">
-                            <AxisX Title="Entry Time" IntervalType="Days">
-                                <MajorGrid Enabled="False" />
-                            </AxisX>
-                            <AxisY Title="Profit/Loss">
-                                <MajorGrid Enabled="True" />
-                            </AxisY>
-                        </asp:ChartArea>
-                    </ChartAreas>
-                </asp:Chart>
-            </div>
             <br />
-            <div class="portlet light">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <asp:Label SkinID="lblSearchResultHeaderIcon" runat="server"></asp:Label>
-                        <asp:Label ID="lblDashBoard" SkinID="lblSearchResultHeaderText" runat="server"></asp:Label>
-                        <label class="control-label">&nbsp;</label>
-                        <label class="control-label pull-right">
-                            <asp:Label ID="lblRecordInfoTopForDasboard" Text="No Record found" CssClass="pull-right" runat="server" Visible="false"></asp:Label>
-                        </label>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="row" runat="server" id="Div_SearchResultForDashBoard" visible="false">
-                        <div class="container-fluid dashboard-container">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-exchange-alt"></i></div>
-                                        <div class="dashboard-card-header">Total Number of GrievanceSystems</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblTotGrievanceSystems" runat="server" Text=""></asp:Label>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-trophy"></i></div>
-                                        <div class="dashboard-card-header">Total Number of Winning GrievanceSystems</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblTotWinningGrievanceSystems" runat="server" Text=""></asp:Label>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-skull-crossbones"></i></div>
-                                        <div class="dashboard-card-header">Total Number of Lossing GrievanceSystems</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblTotLossingGrievanceSystems" runat="server" Text=""></asp:Label>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-hand-peace"></i></div>
-                                        <div class="dashboard-card-header">Win Rate % Overall</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblWinRateOverAll" runat="server" Text=""></asp:Label><i class="fa fa-percentage"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-thumbtack"></i></div>
-                                        <div class="dashboard-card-header">Net P&L </div>
-                                        <div class="dashboard-card-content">
-                                            <span><i class="fa fa-rupee-sign"></i>
-                                                <asp:Label ID="lblTotPofitLoss" runat="server" Text=""></asp:Label></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fa fa-rocket"></i></div>
-                                        <div class="dashboard-card-header">Winning Strike</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblWinningStrike" runat="server" Text=""></asp:Label></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fa fa-exclamation-triangle"></i></div>
-                                        <div class="dashboard-card-header">Lossing Strike</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblLossingStrike" runat="server" Text=""></asp:Label></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-arrow-circle-up"></i></div>
-                                        <div class="dashboard-card-header">Number of Long GrievanceSystems</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblTotLongGrievanceSystem" runat="server" Text=""></asp:Label></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-arrow-circle-down"></i></div>
-                                        <div class="dashboard-card-header">Number of Short GrievanceSystems</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblTotShortGrievanceSystem" runat="server" Text=""></asp:Label></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-chart-line"></i></div>
-                                        <div class="dashboard-card-header">Win Rate % for Long GrievanceSystems</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblWinRateForLongGrievanceSystem" runat="server" Text=""></asp:Label><i class="fa fa-percentage"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-chart-line"></i></div>
-                                        <div class="dashboard-card-header">Win Rate % for Short GrievanceSystems</div>
-                                        <div class="dashboard-card-content">
-                                            <span>
-                                                <asp:Label ID="lblWinRateForShortGrievanceSystem" runat="server" Text=""></asp:Label><i class="fa fa-percentage"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fa fa-hand-lizard"></i></div>
-                                        <div class="dashboard-card-header">Average Gain Per GrievanceSystem</div>
-                                        <div class="dashboard-card-content">
-                                            <span><i class="fa fa-rupee-sign"></i>
-                                                <asp:Label ID="lblAvgGain" runat="server" Text=""></asp:Label></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fas fa-hand-paper"></i></div>
-                                        <div class="dashboard-card-header">Win GrievanceSystem Average GAin</div>
-                                        <div class="dashboard-card-content">
-                                            <span><i class="fa fa-rupee-sign"></i>
-                                                <asp:Label ID="lblAvgGainWinGrievanceSystem" runat="server" Text=""></asp:Label></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="dashboard-card">
-                                        <div class="dashboard-card-icon"><i class="fa fa-hand-rock"></i></div>
-                                        <div class="dashboard-card-header">Loss GrievanceSystem Average Loss</div>
-                                        <div class="dashboard-card-content">
-                                            <span><i class="fa fa-rupee-sign"></i>
-                                                <asp:Label ID="lblAvgLossLossGrievanceSystem" runat="server" Text=""></asp:Label></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="dashboard-card">
-                                                <div class="dashboard-card-icon"><i class="fas fa-thumbs-up"></i></div>
-                                                <div class="dashboard-card-header">Highest Winning</div>
-                                                <div class="dashboard-card-content">
-                                                    <span>
-                                                        <i class="fa fa-rupee-sign"></i>
-                                                        <asp:Label ID="lblHighestWinning" runat="server" Text=""></asp:Label></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="dashboard-card">
-                                                <div class="dashboard-card-icon"><i class="fas fa-thumbs-down"></i></div>
-                                                <div class="dashboard-card-header">Highest Lossing</div>
-                                                <div class="dashboard-card-content">
-                                                    <span>
-                                                        <i class="fa fa-rupee-sign"></i>
-                                                        <asp:Label ID="lblHighestLossing" runat="server" Text=""></asp:Label></span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
         </ContentTemplate>
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnSearch" EventName="Click" />
