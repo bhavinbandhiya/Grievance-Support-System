@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Web;
 
 namespace GrievanceSystemDetails.DAL
 {
@@ -229,6 +230,8 @@ namespace GrievanceSystemDetails.DAL
                 sqlDB.AddInParameter(dbCMD, "@ToDate", SqlDbType.DateTime, ToDate);
                 sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, UserID);
                 sqlDB.AddInParameter(dbCMD, "@GrievanceStatus", SqlDbType.NVarChar, GrievanceStatus);
+                sqlDB.AddInParameter(dbCMD, "@DepartmentID", SqlDbType.Int, HttpContext.Current.Session["DepartmentID"]);
+
 
                 DataTable dtGRI_Grievance = new DataTable("PR_GRI_Grievance_SelectForDepartmentDashboard");
 

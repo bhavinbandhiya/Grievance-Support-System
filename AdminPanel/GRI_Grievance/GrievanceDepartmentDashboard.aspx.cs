@@ -72,7 +72,11 @@ public partial class AdminPanel_GrievanceDepartmentDashboard : System.Web.UI.Pag
 
     private void FillDropDownList()
     {
-        CommonFillMethods.FillDropDownListEmotionType(ddlUserID, "Entry GrievanceSystem");
+        //if (Session["DepartmentID"] != null && Session["DepartmentID"].ToString() != String.Empty)
+        //{
+        //}
+        
+        CommonFillMethods.FillDropDownListDepartment(ddlUserID);
         CommonFunctions.FillDropDownListGrievanceStatus(ddlGrievanceStatus);
 
         CommonFunctions.GetDropDownPageSize(ddlPageSizeBottom);

@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="GrievanceDepartmentDashboard.aspx.cs" Inherits="Z3" %>
+﻿<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="GrievanceDepartmentDashboard.aspx.cs" Inherits="AdminPanel_GrievanceDepartmentDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeader" runat="Server">
-    <asp:Label ID="lblPageHeader_XXXXX" runat="server" Text="Grievance Details"></asp:Label>
+    <asp:Label ID="lblPageHeader_XXXXX" runat="server" Text="Department Dashboard"></asp:Label>
     <small>
-        <asp:Label ID="lblPageHeaderInfo_XXXXX" runat="server" Text="Department Dashboard"></asp:Label></small>
+        <asp:Label ID="lblPageHeaderInfo_XXXXX" runat="server" Text="Grievance Details"></asp:Label></small>
     <span class="pull-right">
         <small>
             <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-3" runat="server" visible="false">
                                     <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon">
@@ -146,142 +146,50 @@
                                 <div class="col-md-12">
                                     <div id="TableContent">
                                         <table class="table table-bordered table-advanced table-striped table-hover" id="sample_1">
-                                            <%-- Table Header --%>
-                                            <thead>
-                                                <tr class="TRDark">
-                                                    <th class="text-center nosort">
-                                                        <asp:Label ID="lbhEntryTime" runat="server" Text="Entry Time"></asp:Label>
-                                                    </th>
-                                                    <th>
-                                                        <asp:Label ID="lbhTicker" runat="server" Text="Ticker"></asp:Label>
-                                                    </th>
-                                                    <th>
-                                                        <asp:Label ID="lbhOrderTypeID" runat="server" Text="Order Type"></asp:Label>
-                                                    </th>
-                                                    <th class="text-right">
-                                                        <asp:Label ID="lbhQuantity" runat="server" Text="Quantity"></asp:Label>
-                                                    </th>
-                                                    <th class="text-right">
-                                                        <asp:Label ID="lbhOpeningPrice" runat="server" Text="Entry Price"></asp:Label>
-                                                    </th>
-                                                    <th class="text-right">
-                                                        <asp:Label ID="lbhClosingPrice" runat="server" Text="Exit Price"></asp:Label>
-                                                    </th>
-                                                    <th class="text-center nosort">
-                                                        <asp:Label ID="lbhExitTime" runat="server" Text="Exit Time"></asp:Label>
-                                                    </th>
-                                                    <th>
-                                                        <asp:Label ID="lbhStrategy" runat="server" Text="Strategy"></asp:Label>
-                                                    </th>
-                                                    <th class="text-center">
-                                                        <asp:Label ID="lbhProfitLoss" runat="server" Text="ProfitLoss (₹)"></asp:Label>
-                                                    </th>
-                                                    <th class="text-center">
-                                                        <asp:Label ID="lbhROI" runat="server" Text="ROI (%)"></asp:Label>
-                                                    </th>
-                                                    <th class="text-center">
-                                                        <asp:Label ID="lblRiskReward" runat="server" Text="Risk-Reward"></asp:Label>
-                                                    </th>
-                                                    <%--<th>
-														<asp:Label ID="lbhEmotionEntryGrievanceSystem" runat="server" Text="Emotion <br/> Entry GrievanceSystem"></asp:Label>
-													</th>
-													<th>
-														<asp:Label ID="lbhEmotionExitGrievanceSystem" runat="server" Text="Emotion <br/> Exit GrievanceSystem"></asp:Label>
-													</th>
-													<th>
-														<asp:Label ID="lbhEmotionSLHit" runat="server" Text="Emotion <br/> SLHIT GrievanceSystem"></asp:Label>
-													</th>
-													<th>
-														<asp:Label ID="lbhLearningFromGrievanceSystem" runat="server" Text="Learning <br/> From GrievanceSystem"></asp:Label>
-													</th>--%>
-                                                    <%--<th>
-														<asp:Label ID="lbhRemarks" runat="server" Text="Remarks"></asp:Label>
-													</th>--%>
-                                                    <th class="text-right">
-                                                        <asp:Label ID="lbhRating" runat="server" Text="Rating"></asp:Label>
-                                                    </th>
-                                                    <th>
-                                                        <asp:Label ID="lbhPhotoPath" runat="server" Text="Photo"></asp:Label>
-                                                    </th>
-                                                    <th class="nosortsearch text-nowrap text-center">
-                                                        <asp:Label ID="lbhAction" runat="server" Text="Action"></asp:Label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <%-- END Table Header --%>
+                                            <tr class="TRDark">
+                                                <th class="text-center nosort">
+                                                    <asp:Label ID="lbhSr" runat="server" Text="Sr."></asp:Label>
+                                                </th>
+                                                <th>
+                                                    <asp:Label ID="lbhGrievance" runat="server" Text="Grievance"></asp:Label>
+                                                </th>
+                                                <th>
+                                                    <asp:Label ID="lbhRaisedBy" runat="server" Text="Raised By"></asp:Label>
+                                                </th>
+                                                <th>
+                                                    <asp:Label ID="lbhDepartment" runat="server" Text="Department"></asp:Label>
+                                                </th>
+                                                <th class="text-center">
+                                                    <asp:Label ID="lbhStatus" runat="server" Text="Status"></asp:Label>
+                                                </th>
+                                                <th class="nosortsearch text-nowrap text-center">
+                                                    <asp:Label ID="lbhAction" runat="server" Text="Action"></asp:Label>
+                                                </th>
+                                            </tr>
 
                                             <tbody>
                                                 <asp:Repeater ID="rpData" runat="server" OnItemCommand="rpData_ItemCommand">
                                                     <ItemTemplate>
                                                         <%-- Table Rows --%>
                                                         <tr class="odd gradeX">
-                                                            <td class="text-center">
-                                                                <%#Eval("EntryTime",GrievanceSystem.CV.DefaultDateTimeFormatForGrid) %>
+                                                            <td class="text-center" style="width: 25px;">
+                                                                <%#Container.ItemIndex+1%>
                                                             </td>
                                                             <td>
-                                                                <%#Eval("Ticker") %>
+                                                                <asp:Label ID="lblGrievance" runat="server" Text='<%# Eval("GrievanceType") %>'></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="lblOrderTypeID" runat="server" Text='<%# GrievanceSystem.CommonFunctions.FindDropDownTextFromValue(ddlOrderTypeID,Convert.ToString(Eval("OrderType"))) %>'></asp:Label>
-                                                            </td>
-                                                            <td class="text-right">
-                                                                <%#Eval("Quantity") %>
-                                                            </td>
-                                                            <td class="text-right">
-                                                                <%#Eval("OpeningPrice",GrievanceSystem.CV.DefaultCurrencyFormatWithDecimalPoint) %>
-                                                            </td>
-                                                            <td class="text-right">
-                                                                <%#Eval("ClosingPrice",GrievanceSystem.CV.DefaultCurrencyFormatWithDecimalPoint) %>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <%#Eval("ExitTime",GrievanceSystem.CV.DefaultDateTimeFormatForGrid) %>
+                                                                <asp:Label ID="lblRaisedBy" runat="server" Text='<%# Eval("UserName") %>'></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <%#Eval("Strategy") %>
+                                                                <asp:Label ID="lblDepartment" runat="server" Text='<%# Eval("DepartmentName") %>'></asp:Label>
                                                             </td>
-                                                            <td class="text-center">
-                                                                <asp:Label ID="lblProfitLoss" runat="server" CssClass='<%# GrievanceSystem.CommonFunctions.GetStatusLabelCssForProfitLoss(Convert.ToDecimal(Eval("ProfitLoss"))) %>' Text='<%#Eval("ProfitLoss",GrievanceSystem.CV.DefaultCurrencyFormatWithDecimalPoint) %>'></asp:Label>
+                                                            <td class="text-center" style="width: 100px;">
+                                                                <asp:Label ID="lblStatus" runat="server" CssClass='<%# GrievanceSystem.CommonFunctions.GetGrievanceStatusCSSClassLabel(Convert.ToString(Eval("Status"))) %>' Text='<%# Eval("Status") %>'></asp:Label>
                                                             </td>
-                                                            <td class="text-center">
-                                                                <asp:Label ID="lblROI" runat="server" CssClass='<%# GrievanceSystem.CommonFunctions.GetStatusLabelCssForProfitLoss(Convert.ToDecimal(Eval("ROI"))) %>' Text='<%#Eval("ROI",GrievanceSystem.CV.DefaultCurrencyFormatWithDecimalPoint) %>'></asp:Label>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <asp:Label ID="lblRiskReward" runat="server" CssClass='<%# GrievanceSystem.CommonFunctions.GetStatusLabelCssForRiskReward(Convert.ToString(Eval("RiskReward"))) %>' Text='<%#Eval("RiskReward") %>'></asp:Label>
-                                                            </td>
-                                                            <%-- <td>
-																<asp:Label ID="lblEmotionEntryGrievanceSystem" runat="server" Text='<%# GrievanceSystem.CommonFunctions.FindDropDownTextFromValue(ddlEmotionEntryGrievanceSystem,Convert.ToString(Eval("EmotionEntryGrievanceSystem"))) %>'></asp:Label>
-															</td>
-															<td>
-																<asp:Label ID="lblEmotionExitGrievanceSystem" runat="server" Text='<%# GrievanceSystem.CommonFunctions.FindDropDownTextFromValue(ddlEmotionExitGrievanceSystem,Convert.ToString(Eval("EmotionExitGrievanceSystem"))) %>'></asp:Label>
-															</td>
-															<td>
-																<asp:Label ID="lblEmotionSLHit" runat="server" Text='<%# GrievanceSystem.CommonFunctions.FindDropDownTextFromValue(ddlEmotionSLHit,Convert.ToString(Eval("EmotionSLHit"))) %>'></asp:Label>
-															</td>--%>
-                                                            <%-- <td>
-																<%#Eval("LearningFromGrievanceSystem") %>
-															</td>--%>
-                                                            <%--<td>
-																<%#Eval("Remarks") %>
-															</td>--%>
-                                                            <td class="text-right">
-                                                                <%#Eval("Rating") %>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <%# !string.IsNullOrEmpty(Eval("PhotoLink").ToString()) ? "<a href='" + Eval("PhotoLink") + "' target='_blank'><i class='fa fa-picture-o'></i></a>" : "" %>
-                                                            </td>
-                                                            <td class="text-nowrap text-center">
-
-                                                                <asp:HyperLink ID="hlView" NavigateUrl='<%# "~/AdminPanel/GrievanceSystemDetailsView.aspx?GrievanceSystemID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceSystemID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server" CssClass="btn grey-cascade btn-xs btn-circle modalButton">
-																<i class="fa fa-file"></i></asp:HyperLink>
-                                                                <asp:HyperLink ID="hlEdit" NavigateUrl='<%# "~/AdminPanel/GrievanceSystemDetaillsAddEdit.aspx?GrievanceSystemID=" + GrievanceSystem.CommonFunctions.EncryptBase64(Eval("GrievanceSystemID").ToString()) %>' runat="server" CssClass="btn btn-xs btn-circle blue-soft tooltips">
-																	<i class="fa fa-edit"></i>
-                                                                </asp:HyperLink>
-                                                                <asp:LinkButton ID="lbtnDelete" runat="server"
-                                                                    OnClientClick="javascript:return GNConfirmYesNoLinkButton(this,'Are you sure you want to delete record ? ');"
-                                                                    CommandName="DeleteRecord"
-                                                                    CommandArgument='<%#Eval("GrievanceSystemID") %>' CssClass="btn red-sunglo btn-circle btn-xs tooltips">
-																	<i class="fas fa-trash"></i>
-                                                                </asp:LinkButton>
+                                                            <td class="text-center" style="width: 100px;">
+                                                                <asp:HyperLink ID="hlView" NavigateUrl="AdminPanel/GRI_Grievance/GrievanceView.aspx?GrievanceID=11" data-target="#viewiFrameReg" data-toggle="modal" runat="server" CssClass="btn grey-cascade btn-xs btn-circle modalButton">
+                                                                <i class="fa fa-file"></i></asp:HyperLink>
                                                             </td>
                                                         </tr>
                                                         <%-- END Table Rows --%>
