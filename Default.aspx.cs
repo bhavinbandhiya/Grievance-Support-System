@@ -75,7 +75,7 @@ public partial class _Default : System.Web.UI.Page
                     string strDomainURL = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + CV.AppendForMenu;
                 }
                 Session["HomeURL"] = CV.DefaultHomeURL;
-                Response.Redirect("~/AdminPanel/GrievanceDetailsList.aspx");
+                Response.Redirect("~/AdminPanel/GRI_Grievance/GrievanceList.aspx");
             }
             else
             {
