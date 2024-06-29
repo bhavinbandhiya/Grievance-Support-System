@@ -39,16 +39,16 @@ namespace GrievanceSystemDetails.DAL
 			try
 			{
 				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_SEC_User_Insert");
+				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_User_Create");
 
 				sqlDB.AddOutParameter(dbCMD, "@UserID", SqlDbType.Int, 4);
 				sqlDB.AddInParameter(dbCMD, "@UserName", SqlDbType.NVarChar, entSEC_User.UserName);
 				sqlDB.AddInParameter(dbCMD, "@Password", SqlDbType.NVarChar, entSEC_User.Password);
-				sqlDB.AddInParameter(dbCMD, "@Remarks", SqlDbType.NVarChar, entSEC_User.Remarks);
-				sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, entSEC_User.Created);
-				sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entSEC_User.Modified);
+				sqlDB.AddInParameter(dbCMD, "@Description", SqlDbType.NVarChar, entSEC_User.Remarks);
+                sqlDB.AddInParameter(dbCMD, "@Email", SqlDbType.NVarChar, entSEC_User.Email);
+                sqlDB.AddInParameter(dbCMD, "@DepartmentID", SqlDbType.Int, entSEC_User.DepartmentID);
 
-				DataBaseHelper DBH = new DataBaseHelper();
+                DataBaseHelper DBH = new DataBaseHelper();
 				DBH.ExecuteNonQuery(sqlDB, dbCMD);
 
 				entSEC_User.UserID = (SqlInt32)Convert.ToInt32(dbCMD.Parameters["@UserID"].Value);

@@ -36,6 +36,32 @@ namespace GrievanceSystemDetails.ENT
             }
         }
 
+        protected SqlString _Email;
+        public SqlString Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                _Email = value;
+            }
+        }
+
+        protected SqlInt32 _DepartmentID;
+        public SqlInt32 DepartmentID
+        {
+            get
+            {
+                return _DepartmentID;
+            }
+            set
+            {
+                _DepartmentID = value;
+            }
+        }
+
         protected SqlString _Password;
         public SqlString Password
         {

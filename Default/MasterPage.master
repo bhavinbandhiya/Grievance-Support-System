@@ -65,6 +65,20 @@
             float: right;
             margin: 0 0 0 0 !important;
         }
+
+        .page-header.navbar .page-logo {
+            float: left;
+            display: block;
+             width: 500px; 
+            height: 50px;
+            line-height: 50px;
+            background-color: #26a1ab;
+            background-image: linear-gradient(to right, #26a1ab, #2b3643);
+            color: white;
+            padding-left: 16px;
+            font-size: 18px;
+            font-weight: 600;
+        }
     </style>
 
 
@@ -82,53 +96,37 @@
             <div class="page-header-inner">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-
                     <span class="page-logo-text">
                         <span class="hidden-md hidden-lg">&nbsp;&nbsp;</span>
                         <%=GrievanceSystem.CV.DefaultUniversityNameHTML %>                            
                     </span>
                     <span class="page-logo-text-sidebar-closed"><%=GrievanceSystem.CV.DefaultUniversityShortNameHTML %>  </span>
-
-
                 </div>
-
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
                 <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
                     <span></span>
                 </a>
-
                 <!-- END RESPONSIVE MENU TOGGLER -->
 
                 <!-- BEGIN TOP NAVIGATION MENU -->
                 <div class="top-menu">
-
-
                     <ul class="nav navbar-nav pull-right">
-
                         <li class="dropdown dropdown-user" style="padding: 12px 4px;"></li>
-
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 <span class="username username-hide-on-mobile">Hey , </span>
                                 <asp:Label ID="lblCurrentUsername" CssClass="username bold username-hide-on-mobile" runat="server" Text="Label"></asp:Label>
-
                                 <i class="fa fa-angle-down pull-right"></i>
                                 <asp:Image ID="imgCurrentUserPhoto" TabIndex="-1" CssClass="img-circle pull-right g-ml-10" runat="server" Visible="true" />
-
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
-                                <li>
-                                    <asp:LinkButton ID="lbtnChangePassword" TabIndex="-1" OnClick="lbtnChangePassword_Click" OnClientClick="document.forms[0].target = '_self';" CausesValidation="false" runat="server"><i class="icon-key"></i>Change Password</asp:LinkButton>
-                                </li>
-
                                 <li>
                                     <asp:LinkButton ID="lbtnLogout" TabIndex="-1" OnClick="lbtnLogout_Click" CausesValidation="false" runat="server" Style="color: darkred"><i class="icon-lock"></i>Log Out</asp:LinkButton>
                                 </li>
                             </ul>
                         </li>
                         <!-- END USER LOGIN DROPDOWN -->
-
                     </ul>
                 </div>
                 <!-- END TOP NAVIGATION MENU -->
@@ -429,7 +427,7 @@
                 });
             }
         </script>
-        
+
         <!-- END JAVASCRIPTS -->
         <asp:ContentPlaceHolder ID="cphScripts" runat="server">
         </asp:ContentPlaceHolder>

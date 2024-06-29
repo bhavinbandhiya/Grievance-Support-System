@@ -114,14 +114,8 @@
                                             <button class="btn default" type="button" tabindex="-1"><i class="fa fa-clock-o"></i></button>
                                         </span>
                                     </div>
-                                    <%-- <div class="input-group bootstrap-timepicker input-medium" data-time-format="hh:mm:ss">
-                                        <asp:TextBox ID="dtpExitTime" CssClass="form-control" runat="server" placeholder="Enter Exit Time"></asp:TextBox>
-                                        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                    </div>--%>
                                     <asp:RequiredFieldValidator ID="rfvdtpExitTime" runat="server" SetFocusOnError="True" ControlToValidate="dtpExitTime" ErrorMessage="Enter Exit Time" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
                                     <asp:CustomValidator ID="cvtxtFromTime" runat="server" ControlToValidate="dtpExitTime" SetFocusOnError="true" Display="Dynamic" ErrorMessage="Enter Entry Time"></asp:CustomValidator>
-                                   <%-- <asp:CompareValidator ID="cmpExitTime" runat="server" ErrorMessage=" Exit Time must be greater than or equal to Entry Time" ControlToCompare="dtpEntryTime" ControlToValidate="dtpExitTime" Operator="GreaterThanEqual"
-                                        Type="String" Display="Dynamic"></asp:CompareValidator>--%>
                                 </div>
                             </div>
 
@@ -144,7 +138,6 @@
                                     <asp:RequiredFieldValidator ID="rfvOrderTypeID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlOrderTypeID" ErrorMessage="Select Order Type" InitialValue="-99"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-3 control-label">
                                     <span class="required">*</span>
@@ -163,7 +156,6 @@
                                     <asp:RequiredFieldValidator ID="rfvRiskReward" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtRiskReward" ErrorMessage="Enter Risk-Reward"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-3 control-label">
                                     <span class="required">*</span>
@@ -174,7 +166,6 @@
                                     <asp:CompareValidator ID="cvOpeningPrice" runat="server" ControlToValidate="txtOpeningPrice" ErrorMessage="Enter Valid Opening Price" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
                                     <asp:RequiredFieldValidator ID="rfvOpeningPrice" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtOpeningPrice" ErrorMessage="Enter Entry Price"></asp:RequiredFieldValidator>
                                 </div>
-
                                 <label class="col-md-3 col-sm-offset-1 control-label">
                                     <span class="required">*</span>
                                     <asp:Label ID="lblClosingPrice_XXXXX" runat="server" Text="Exit Price"></asp:Label>
@@ -185,7 +176,6 @@
                                     <asp:RequiredFieldValidator ID="rfvClosingPrice" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtClosingPrice" ErrorMessage="Enter Exit Price"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-3 control-label">
                                     <span class="required">*</span>
@@ -195,7 +185,6 @@
                                     <asp:TextBox ID="txtStrategy" CssClass="form-control" runat="server" PlaceHolder="Enter Strategy Name"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvStrategy" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtStrategy" ErrorMessage="Enter Strategy Name"></asp:RequiredFieldValidator>
                                 </div>
-
                                 <label class="col-md-3 col-sm-offset-1 control-label">
                                     <asp:Label ID="lblEmotionEntryGrievanceSystem" runat="server" Text="Emotion Entry GrievanceSystem"></asp:Label>
                                 </label>
@@ -203,7 +192,6 @@
                                     <asp:DropDownList ID="ddlEmotionEntryGrievanceSystem" CssClass="form-control select2me" runat="server"></asp:DropDownList>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-3 control-label">
                                     <asp:Label ID="lblEmotionExitGrievanceSystem" runat="server" Text="Emotion Exit GrievanceSystem"></asp:Label>
@@ -211,16 +199,13 @@
                                 <div class="col-md-3 input-medium">
                                     <asp:DropDownList ID="ddlEmotionExitGrievanceSystem" CssClass="form-control select2me" runat="server"></asp:DropDownList>
                                 </div>
-
                                 <label class="col-md-3 col-sm-offset-1 control-label">
                                     <asp:Label ID="lblEmotionSLHit" runat="server" Text="Emotion SL - HIT GrievanceSystem"></asp:Label>
                                 </label>
                                 <div class="col-md-3 input-medium">
                                     <asp:DropDownList ID="ddlEmotionSLHit" CssClass="form-control select2me" runat="server"></asp:DropDownList>
                                 </div>
-
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-3 control-label">
                                     <asp:Label ID="lblLearningFromGrievanceSystem_XXXXX" runat="server" Text="Learning From This GrievanceSystem"></asp:Label>
@@ -229,7 +214,6 @@
                                     <asp:TextBox ID="txtLearningFromGrievanceSystem" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="What You Learn From This GrievanceSystem ?"></asp:TextBox>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-3 control-label">
                                     <asp:Label ID="lblRemarks_XXXXX" runat="server" Text="Remarks"></asp:Label>
@@ -238,7 +222,6 @@
                                     <asp:TextBox ID="txtRemarks" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="Enter Remarks"></asp:TextBox>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-md-3  control-label">
                                     <span class="required">*</span>
@@ -249,7 +232,6 @@
                                     <asp:CompareValidator ID="cvRating" runat="server" ControlToValidate="txtRating" ErrorMessage="Enter Valid Rating" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
                                     <asp:RequiredFieldValidator ID="rfvRating" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtRating" ErrorMessage="Enter Rating"></asp:RequiredFieldValidator>
                                 </div>
-
                                 <label class="col-md-3 col-sm-offset-1 control-label">
                                     <asp:Label ID="lblPhotoPath" runat="server" Text="GrievanceSystem PhotoPath"></asp:Label>
                                 </label>
@@ -257,7 +239,6 @@
                                     <asp:TextBox ID="txtPhotoPath" CssClass="form-control" runat="server" PlaceHolder="Enter GrievanceSystem PhotoPath"></asp:TextBox>
                                 </div>
                             </div>
-
                             <div class="form-actions">
                                 <div class="row">
                                     <div class="col-md-offset-3 col-md-9">

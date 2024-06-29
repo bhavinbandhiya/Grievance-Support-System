@@ -47,14 +47,7 @@ public partial class _Default : System.Web.UI.Page
 
             #endregion Validate Controls
 
-            #region Check Login Restricted
-
-
-
-            #endregion Check Login Restricted
-
             #region Store Data in Session
-
 
             SEC_UserBAL balSEC_UserBAL = new SEC_UserBAL();
             DataTable dtSEC_UserBAL = balSEC_UserBAL.SelectByUserNameAndPassword(txtUsername.Text.Trim(), txtPassword.Text.ToString());
@@ -65,28 +58,42 @@ public partial class _Default : System.Web.UI.Page
                     if (!drow["UserID"].Equals(System.DBNull.Value))
                         Session["UserID"] = drow["UserID"].ToString();
 
-
                     if (!drow["UserName"].Equals(DBNull.Value))
                         Session["DisplayName"] = drow["UserName"].ToString();
 
                     if (!drow["Password"].Equals(DBNull.Value))
                         Session["Password"] = drow["Password"].ToString();
 
+                    if (!drow["DepartmentID"].Equals(DBNull.Value))
+                        Session["DepartmentID"] = drow["DepartmentID"].ToString();
+
+                    if (!drow["RoleID"].Equals(DBNull.Value))
+                        Session["RoleID"] = drow["RoleID"].ToString();
+
                     string strDomainURL = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + CV.AppendForMenu;
                 }
-                Session["HomeURL"] = CV.DefaultHomeURL;
-                Response.Redirect("~/AdminPanel/GRI_Grievance/GrievanceList.aspx");
+
+                if (Session["RoleID"].ToString() == "1")
+                    Session["HomeURL"] = "~/AdminPanel/GRI_Grievance/GrievanceList.aspx";
+
+                else if (Session["RoleID"].ToString() == "2")
+                    Session["HomeURL"] = "~/AdminPanel/GRI_Grievance/GrievanceDepartmentDashboard.aspx";
+
+                else if (Session["RoleID"].ToString() == "3")
+                    Session["HomeURL"] = "~/AdminPanel/GRI_Grievance/GRI_Grievance_Administrator.aspx";
+
+                else
+                    Session["HomeURL"] = "~/AdminPanel/GRI_Grievance/GrievanceList.aspx";
+
+                Response.Redirect(Session["HomeURL"].ToString());
             }
             else
             {
-                //ucMessage.ShowError("Invalid Username or Password");
                 lblErr.Text = "Invalid Password ";
-                //lblErr.Text += CV.PasswordWrong;
                 txtPassword.Focus();
             }
 
             #endregion Store Data in Session
-
         }
     }
 
