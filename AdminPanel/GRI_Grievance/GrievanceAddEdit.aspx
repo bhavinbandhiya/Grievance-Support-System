@@ -65,32 +65,8 @@
                                 <label class="col-md-3 control-label">
                                     <asp:Label ID="lblUserID" runat="server" Text="User"></asp:Label>
                                 </label>
-<<<<<<< HEAD
                                 <div class="col-md-6">
                                     <asp:DropDownList ID="ddlUserID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-=======
-                                <div class="col-md-3">
-                                    <div class="input-group input-medium date date-picker" data-date-format='<%=GrievanceSystem.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                        <asp:TextBox ID="dtpExitDate" CssClass="form-control" runat="server" placeholder="Enter Exit Date"></asp:TextBox>
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                        </span>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="rfvdtpExitDate" runat="server" SetFocusOnError="True" ControlToValidate="dtpExitDate" ErrorMessage="Enter Exit Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
-                                    <asp:CompareValidator ID="cmpExitDate" runat="server" ErrorMessage=" Exit date must be greater than or equal to Entry date" ControlToCompare="dtpEntryDate" ControlToValidate="dtpExitDate" Operator="GreaterThanEqual" Type="Date" Display="Dynamic"></asp:CompareValidator>
-                                </div>
-
-                                <label class="col-md-3 control-label"><span class="required">* </span>Exit Time</label>
-                                <div class="col-md-3">
-                                    <div class="input-group input-medium" data-date-format='<%=GrievanceSystem.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                        <asp:TextBox ID="dtpExitTime" runat="server" CssClass="form-control timepicker timepicker-default" MaxLength="20" PlaceHolder="Enter Exit Time"></asp:TextBox>
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button" tabindex="-1"><i class="fa fa-clock-o"></i></button>
-                                        </span>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="rfvdtpExitTime" runat="server" SetFocusOnError="True" ControlToValidate="dtpExitTime" ErrorMessage="Enter Exit Time" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
-                                    <asp:CustomValidator ID="cvtxtFromTime" runat="server" ControlToValidate="dtpExitTime" SetFocusOnError="true" Display="Dynamic" ErrorMessage="Enter Entry Time"></asp:CustomValidator>
->>>>>>> b0a39dc45808d07cf2e4d2ccc683485669affb47
                                 </div>
                             </div>
 
@@ -110,100 +86,20 @@
                                     <asp:TextBox ID="txtPriority" CssClass="form-control" runat="server" PlaceHolder="Enter Priority"></asp:TextBox>
                                 </div>
                             </div>
-<<<<<<< HEAD
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">
+                                    <asp:Label ID="Label1" runat="server" Text="Description"></asp:Label>
+                                </label>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" Rows="2" PlaceHolder="Enter Description"></asp:TextBox>
+                                </div>
+                            </div>
 
-
-
-=======
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">
-                                    <span class="required">*</span>
-                                    <asp:Label ID="lblOpeningPrice_XXXXX" runat="server" Text="Entry Price"></asp:Label>
-                                </label>
-                                <div class="col-md-3 input-medium">
-                                    <asp:TextBox ID="txtOpeningPrice" CssClass="form-control" runat="server" onkeypress="return Decimal2Digits(event,this)" PlaceHolder="Enter Entry Price" MaxLength="8"></asp:TextBox>
-                                    <asp:CompareValidator ID="cvOpeningPrice" runat="server" ControlToValidate="txtOpeningPrice" ErrorMessage="Enter Valid Opening Price" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
-                                    <asp:RequiredFieldValidator ID="rfvOpeningPrice" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtOpeningPrice" ErrorMessage="Enter Entry Price"></asp:RequiredFieldValidator>
-                                </div>
-                                <label class="col-md-3 col-sm-offset-1 control-label">
-                                    <span class="required">*</span>
-                                    <asp:Label ID="lblClosingPrice_XXXXX" runat="server" Text="Exit Price"></asp:Label>
-                                </label>
-                                <div class="col-md-3 input-medium">
-                                    <asp:TextBox ID="txtClosingPrice" CssClass="form-control" runat="server" onkeypress="return Decimal2Digits(event,this)" PlaceHolder="Enter Exit Price" MaxLength="8"></asp:TextBox>
-                                    <asp:CompareValidator ID="cvClosingPrice" runat="server" ControlToValidate="txtClosingPrice" ErrorMessage="Enter Valid Closing Price" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
-                                    <asp:RequiredFieldValidator ID="rfvClosingPrice" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtClosingPrice" ErrorMessage="Enter Exit Price"></asp:RequiredFieldValidator>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">
-                                    <span class="required">*</span>
-                                    <asp:Label ID="lblStrategy" runat="server" Text="Strategy"></asp:Label>
-                                </label>
-                                <div class="col-md-3 input-medium">
-                                    <asp:TextBox ID="txtStrategy" CssClass="form-control" runat="server" PlaceHolder="Enter Strategy Name"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvStrategy" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtStrategy" ErrorMessage="Enter Strategy Name"></asp:RequiredFieldValidator>
-                                </div>
-                                <label class="col-md-3 col-sm-offset-1 control-label">
-                                    <asp:Label ID="lblEmotionEntryGrievanceSystem" runat="server" Text="Emotion Entry GrievanceSystem"></asp:Label>
-                                </label>
-                                <div class="col-md-3 input-medium">
-                                    <asp:DropDownList ID="ddlEmotionEntryGrievanceSystem" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">
-                                    <asp:Label ID="lblEmotionExitGrievanceSystem" runat="server" Text="Emotion Exit GrievanceSystem"></asp:Label>
-                                </label>
-                                <div class="col-md-3 input-medium">
-                                    <asp:DropDownList ID="ddlEmotionExitGrievanceSystem" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                </div>
-                                <label class="col-md-3 col-sm-offset-1 control-label">
-                                    <asp:Label ID="lblEmotionSLHit" runat="server" Text="Emotion SL - HIT GrievanceSystem"></asp:Label>
-                                </label>
-                                <div class="col-md-3 input-medium">
-                                    <asp:DropDownList ID="ddlEmotionSLHit" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">
-                                    <asp:Label ID="lblLearningFromGrievanceSystem_XXXXX" runat="server" Text="Learning From This GrievanceSystem"></asp:Label>
-                                </label>
-                                <div class="col-md-9">
-                                    <asp:TextBox ID="txtLearningFromGrievanceSystem" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="What You Learn From This GrievanceSystem ?"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">
-                                    <asp:Label ID="lblRemarks_XXXXX" runat="server" Text="Remarks"></asp:Label>
-                                </label>
-                                <div class="col-md-9">
-                                    <asp:TextBox ID="txtRemarks" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="Enter Remarks"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3  control-label">
-                                    <span class="required">*</span>
-                                    <asp:Label ID="lblRating" runat="server" Text="Rating"></asp:Label>
-                                </label>
-                                <div class="col-md-3 input-medium">
-                                    <asp:TextBox ID="txtRating" CssClass="form-control" runat="server" onkeypress="return Decimal2Digits(event,this)" PlaceHolder="Enter Rating" MaxLength="3"></asp:TextBox>
-                                    <asp:CompareValidator ID="cvRating" runat="server" ControlToValidate="txtRating" ErrorMessage="Enter Valid Rating" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
-                                    <asp:RequiredFieldValidator ID="rfvRating" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtRating" ErrorMessage="Enter Rating"></asp:RequiredFieldValidator>
-                                </div>
-                                <label class="col-md-3 col-sm-offset-1 control-label">
-                                    <asp:Label ID="lblPhotoPath" runat="server" Text="GrievanceSystem PhotoPath"></asp:Label>
-                                </label>
-                                <div class="col-md-3 input-large">
-                                    <asp:TextBox ID="txtPhotoPath" CssClass="form-control" runat="server" PlaceHolder="Enter GrievanceSystem PhotoPath"></asp:TextBox>
-                                </div>
-                            </div>
->>>>>>> b0a39dc45808d07cf2e4d2ccc683485669affb47
                             <div class="form-actions">
                                 <div class="row">
                                     <div class="col-md-offset-3 col-md-9">
                                         <asp:Button ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click" />
-                                        <asp:HyperLink ID="hlCancel" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/GrievanceSystemDetailsList.aspx"></asp:HyperLink>
+                                        <asp:HyperLink ID="hlCancel" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/GRI_Grievance/GrievanceList.aspx"></asp:HyperLink>
                                     </div>
                                 </div>
                             </div>

@@ -98,9 +98,9 @@ public partial class AdminPanel_GrievanceAddEdit : System.Web.UI.Page
     #region 14.0 FillControls By PK
     private void FillControls()
     {
-        if (Request.QueryString["GrievanceSystemID"] != null)
+        if (Request.QueryString["GrievanceID"] != null)
         {
-            lblFormHeader.Text = CV.PageHeaderEdit + " GrievanceSystem Details";
+            lblFormHeader.Text = CV.PageHeaderEdit + " GrievanceID Details";
             GRI_GrievanceBAL balGrievanceSystemDetails = new GRI_GrievanceBAL();
             GRI_GrievanceENT entGrievanceSystemDetails = new GRI_GrievanceENT();
 
@@ -148,6 +148,9 @@ public partial class AdminPanel_GrievanceAddEdit : System.Web.UI.Page
                 if (txtPriority.Text.ToString() != String.Empty)
                     entGrievance.Priority = txtPriority.Text.ToString();
 
+                if(txtDescription.Text.ToString() != String.Empty)
+                    entGrievance.Description = txtDescription.Text.ToString();
+
                 #endregion 15.2 Gather Data
 
                 #region 15.3 Insert,Update,Copy
@@ -194,7 +197,7 @@ public partial class AdminPanel_GrievanceAddEdit : System.Web.UI.Page
         ddlDepartmentID_SelectedIndexChanged(ddlDepartmentID, EventArgs.Empty);
         txtGrievanceType.Text = String.Empty;
         txtPriority.Text = String.Empty;
-
+        txtDescription.Text = String.Empty;
     }
 
     #endregion 16.0 Clear Controls

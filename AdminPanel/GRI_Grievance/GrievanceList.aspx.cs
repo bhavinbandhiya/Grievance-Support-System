@@ -66,25 +66,27 @@ public partial class AdminPanel_GrievanceList : System.Web.UI.Page
 
     #endregion 13.0 FillLabels
 
-    #region 14.0 DropDownList
-
-    #region 14.1 Fill DropDownList
+    #region 14.0 Fill DropDownList
 
     private void FillDropDownList()
     {
-        CommonFillMethods.FillDropDownListOrderTypeID(ddlOrderTypeID);
-        CommonFillMethods.FillDropDownListEmotionType(ddlEmotionEntryGrievanceSystem, "Entry GrievanceSystem");
-        CommonFillMethods.FillDropDownListEmotionType(ddlEmotionExitGrievanceSystem, "Exit GrievanceSystem");
-        //CommonFillMethods.FillDropDownListEmotionType(ddlEmotionSLHit, "SL-Hit");
-        //CommonFunctions.FillDropDownListDayOfWeek(ddlDayName);
-
-        CommonFunctions.GetDropDownPageSize(ddlPageSizeBottom);
-        ddlPageSizeBottom.SelectedValue = PageRecordSize.ToString();
+        CommonFillMethods.FillDropDownListDepartment(ddlDepartmentID);
+        CommonFunctions.FillDropDownListBlank(ddlUserID, "User");
     }
 
-    #endregion 14.1 Fill DropDownList
+    protected void ddlDepartmentID_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlDepartmentID.SelectedIndex > 0)
+        {
+            CommonFillMethods.FillDropDownListUserByDepartment(ddlUserID, Convert.ToInt32(ddlDepartmentID.SelectedValue));
+        }
+        else
+        {
+            CommonFunctions.FillDropDownListBlank(ddlUserID, "User");
+        }
+    }
 
-    #endregion 14.0 DropDownList
+    #endregion 14.0 Fill DropDownList
 
     #region 15.0 Search
 
@@ -102,16 +104,10 @@ public partial class AdminPanel_GrievanceList : System.Web.UI.Page
     {
         #region Parameters
 
-        SqlInt32 OrderTypeID = SqlInt32.Null;
-        SqlString Ticker = SqlString.Null;
-        SqlString Strategy = SqlString.Null;
-        SqlInt32 EmotionEntryGrievanceSystem = SqlInt32.Null;
-        SqlInt32 EmotionExitGrievanceSystem = SqlInt32.Null;
-        SqlInt32 EmotionSLHit = SqlInt32.Null;
-        SqlDecimal Rating = SqlDecimal.Null;
-        SqlDateTime GrievanceSystemFromDate = SqlDateTime.Null;
-        SqlDateTime GrievanceSystemToDate = SqlDateTime.Null;
-        SqlString DayName = SqlString.Null;
+        SqlInt32 DepartmentID = SqlInt32.Null;
+        SqlInt32 UserID = SqlInt32.Null;
+        SqlDateTime FromDate = SqlDateTime.Null;
+        SqlDateTime ToDate = SqlDateTime.Null;
 
         Int32 Offset = (PageNo - 1) * PageRecordSize;
 
@@ -119,7 +115,17 @@ public partial class AdminPanel_GrievanceList : System.Web.UI.Page
 
         #region Gather Data
 
-      
+        if (dtpGrievanceSystemFromDate.Text.ToString() != String.Empty)
+            FromDate = Convert.ToDateTime(dtpGrievanceSystemFromDate.Text);
+
+        if (dtpGrievanceSystemToDate.Text.ToString() != String.Empty)
+            ToDate = Convert.ToDateTime(dtpGrievanceSystemToDate.Text);
+
+        if(ddlDepartmentID.SelectedIndex > 0)
+            DepartmentID = Convert.ToInt32(ddlDepartmentID.SelectedValue );
+
+        if (ddlUserID.SelectedIndex > 0)
+            UserID = Convert.ToInt32(ddlUserID.SelectedValue);
 
         #endregion Gather Data
 
@@ -127,7 +133,8 @@ public partial class AdminPanel_GrievanceList : System.Web.UI.Page
 
         int TotalRecords = 0;
         DataTable dt = new DataTable();
-        //DataTable dt = balGrievanceSystemDetails.SelectPage(Offset, PageRecordSize, out TotalRecords, Ticker, OrderTypeID, Strategy, EmotionEntryGrievanceSystem, EmotionExitGrievanceSystem, EmotionSLHit, Rating, GrievanceSystemFromDate, GrievanceSystemToDate, DayName, Convert.ToInt32(Session["UserID"]));
+
+        dt = balGrievanceSystemDetails.SelectForGrievanceAdministrator(FromDate, ToDate, SqlString.Null, DepartmentID, UserID);
 
         int TotalPages;
 
@@ -332,35 +339,7 @@ public partial class AdminPanel_GrievanceList : System.Web.UI.Page
         SqlDateTime GrievanceSystemToDate = SqlDateTime.Null;
         SqlString DayName = SqlString.Null;
 
-        if (txtTicker.Text.Trim() != String.Empty)
-            Ticker = Convert.ToString(txtTicker.Text.Trim());
-
-        if (Convert.ToInt32(ddlOrderTypeID.SelectedValue) > 0)
-            OrderTypeID = Convert.ToInt32(ddlOrderTypeID.SelectedValue);
-
-        if (txtStrategy.Text.Trim() != String.Empty)
-            Strategy = Convert.ToString(txtStrategy.Text.Trim());
-
-        if (Convert.ToInt32(ddlEmotionEntryGrievanceSystem.SelectedValue) > 0)
-            EmotionEntryGrievanceSystem = Convert.ToInt32(ddlEmotionEntryGrievanceSystem.SelectedValue);
-
-        if (Convert.ToInt32(ddlEmotionExitGrievanceSystem.SelectedValue) > 0)
-            EmotionExitGrievanceSystem = Convert.ToInt32(ddlEmotionExitGrievanceSystem.SelectedValue);
-
-        if (Convert.ToInt32(ddlEmotionSLHit.SelectedValue) > 0)
-            EmotionSLHit = Convert.ToInt32(ddlEmotionSLHit.SelectedValue);
-
-        if (txtRating.Text.Trim() != String.Empty)
-            Rating = Convert.ToDecimal(txtRating.Text.Trim());
-
-        if (dtpGrievanceSystemFromDate.Text.Trim() != String.Empty)
-            GrievanceSystemFromDate = Convert.ToDateTime(dtpGrievanceSystemFromDate.Text.Trim());
-
-        if (dtpGrievanceSystemToDate.Text.Trim() != String.Empty)
-            GrievanceSystemToDate = Convert.ToDateTime(dtpGrievanceSystemToDate.Text.Trim());
-
-        if (ddlDayName.SelectedIndex > 0)
-            DayName = Convert.ToString(ddlDayName.SelectedValue);
+        
 
 
         Int32 Offset = 0;
@@ -411,16 +390,8 @@ public partial class AdminPanel_GrievanceList : System.Web.UI.Page
 
     private void ClearControls()
     {
-        ddlOrderTypeID.SelectedIndex = 0;
-        ddlEmotionEntryGrievanceSystem.SelectedIndex = 0;
-        ddlEmotionExitGrievanceSystem.SelectedIndex = 0;
-        ddlEmotionSLHit.SelectedIndex = 0;
-        txtRating.Text = String.Empty;
-        txtStrategy.Text = String.Empty;
-        txtTicker.Text = String.Empty;
-        dtpGrievanceSystemFromDate.Text = String.Empty;
-        dtpGrievanceSystemToDate.Text = String.Empty;
-        ddlDayName.SelectedIndex = 0;
+        ddlDepartmentID.SelectedIndex = 0;
+        ddlDepartmentID_SelectedIndexChanged(ddlDepartmentID, EventArgs.Empty);
 
         CommonFunctions.BindEmptyRepeater(rpData);
         Div_SearchResult.Visible = false;
