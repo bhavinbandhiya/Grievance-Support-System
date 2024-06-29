@@ -182,6 +182,38 @@ namespace GrievanceSystemDetails.DAL
             }
         }
 
+        public DataTable SelectByDepartmentID(SqlInt32 DepartmentID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_SEC_User_SelectByDepartmentID");
+
+                sqlDB.AddInParameter(dbCMD, "@DepartmentID", SqlDbType.Int, DepartmentID);
+
+                DataTable dtSEC_User = new DataTable("PR_SEC_User_SelectByDepartmentID");
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtSEC_User);
+
+                return dtSEC_User;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
+
         //public SEC_UserENT SelectPK(SqlInt32 UserID)
         //{
         //    try
@@ -330,7 +362,7 @@ namespace GrievanceSystemDetails.DAL
         //    }
         //}
 
-		#endregion SelectOperation
+        #endregion SelectOperation
 
         #region constructor
         public SEC_UserDAL()

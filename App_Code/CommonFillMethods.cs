@@ -48,5 +48,16 @@ namespace GrievanceSystem
             ddl.DataBind();
             ddl.Items.Insert(0, new ListItem("Select Department", "-99"));
         }
+
+        public static void FillDropDownListUserByDepartment(DropDownList ddl, SqlInt32 DepartmentID)
+        {
+            SEC_UserBAL balSEC_User = new SEC_UserBAL();
+            DataTable dtSEC_User = balSEC_User.SelectByDepartmentID(DepartmentID);
+            ddl.DataSource = dtSEC_User;
+            ddl.DataTextField = "UserName";
+            ddl.DataValueField = "UserID";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("Select User", "-99"));
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace GrievanceSystemDetails.DAL
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_GRI_Grievance_Insert");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_GRI_Grievance_Create");
 
                 sqlDB.AddOutParameter(dbCMD, "@GrievanceID", SqlDbType.Int, 4);
                 sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, entGRI_Grievance.UserID);
@@ -45,8 +45,6 @@ namespace GrievanceSystemDetails.DAL
 
                 DataBaseHelper DBH = new DataBaseHelper();
                 var unused = DBH.ExecuteNonQuery(sqlDB, dbCMD);
-
-                entGRI_Grievance.GrievanceID = (SqlInt32)Convert.ToInt32(dbCMD.Parameters["@GrievanceID"].Value);
 
                 return true;
             }

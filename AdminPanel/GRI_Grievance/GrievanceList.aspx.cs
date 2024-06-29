@@ -75,8 +75,8 @@ public partial class AdminPanel_GrievanceList : System.Web.UI.Page
         CommonFillMethods.FillDropDownListOrderTypeID(ddlOrderTypeID);
         CommonFillMethods.FillDropDownListEmotionType(ddlEmotionEntryGrievanceSystem, "Entry GrievanceSystem");
         CommonFillMethods.FillDropDownListEmotionType(ddlEmotionExitGrievanceSystem, "Exit GrievanceSystem");
-        CommonFillMethods.FillDropDownListEmotionType(ddlEmotionSLHit, "SL-Hit");
-        CommonFunctions.FillDropDownListDayOfWeek(ddlDayName);
+        //CommonFillMethods.FillDropDownListEmotionType(ddlEmotionSLHit, "SL-Hit");
+        //CommonFunctions.FillDropDownListDayOfWeek(ddlDayName);
 
         CommonFunctions.GetDropDownPageSize(ddlPageSizeBottom);
         ddlPageSizeBottom.SelectedValue = PageRecordSize.ToString();
@@ -119,35 +119,7 @@ public partial class AdminPanel_GrievanceList : System.Web.UI.Page
 
         #region Gather Data
 
-        if (txtTicker.Text.Trim() != String.Empty)
-            Ticker = Convert.ToString(txtTicker.Text.Trim());
-
-        if (Convert.ToInt32(ddlOrderTypeID.SelectedValue) > 0)
-            OrderTypeID = Convert.ToInt32(ddlOrderTypeID.SelectedValue);
-
-        if (txtStrategy.Text.Trim() != String.Empty)
-            Strategy = Convert.ToString(txtStrategy.Text.Trim());
-
-        if (Convert.ToInt32(ddlEmotionEntryGrievanceSystem.SelectedValue) > 0)
-            EmotionEntryGrievanceSystem = Convert.ToInt32(ddlEmotionEntryGrievanceSystem.SelectedValue);
-
-        if (Convert.ToInt32(ddlEmotionExitGrievanceSystem.SelectedValue) > 0)
-            EmotionExitGrievanceSystem = Convert.ToInt32(ddlEmotionExitGrievanceSystem.SelectedValue);
-
-        if (Convert.ToInt32(ddlEmotionSLHit.SelectedValue) > 0)
-            EmotionSLHit = Convert.ToInt32(ddlEmotionSLHit.SelectedValue);
-
-        if (txtRating.Text.Trim() != String.Empty)
-            Rating = Convert.ToDecimal(txtRating.Text.Trim());
-
-        if (dtpGrievanceSystemFromDate.Text.Trim() != String.Empty)
-            GrievanceSystemFromDate = Convert.ToDateTime(dtpGrievanceSystemFromDate.Text.Trim());
-
-        if (dtpGrievanceSystemToDate.Text.Trim() != String.Empty)
-            GrievanceSystemToDate = Convert.ToDateTime(dtpGrievanceSystemToDate.Text.Trim());
-
-        if (ddlDayName.SelectedIndex > 0)
-            DayName = Convert.ToString(ddlDayName.SelectedValue);
+      
 
         #endregion Gather Data
 

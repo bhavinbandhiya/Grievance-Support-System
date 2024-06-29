@@ -96,6 +96,12 @@ namespace GrievanceSystemDetails.BAL
             return dalSEC_User.SelectByUserNameAndPassword(UserName, Password);
         }
 
+        public DataTable SelectByDepartmentID(SqlInt32 DepartmentID)
+        {
+            SEC_UserDAL dalSEC_User = new SEC_UserDAL();
+            return dalSEC_User.SelectByDepartmentID(DepartmentID);
+        }
+
         //public SEC_UserENT SelectPK(SqlInt32 UserID)
         //{
         //    SEC_UserDAL dalSEC_User = new SEC_UserDAL();

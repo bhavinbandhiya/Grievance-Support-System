@@ -261,7 +261,7 @@
 							</div>
 							<div class="tools">
 								<div>
-									<asp:HyperLink SkinID="hlAddNew" ID="hlAddNew" NavigateUrl="~/AdminPanel/GrievanceDetaillsAddEdit.aspx" runat="server"></asp:HyperLink>
+									<asp:HyperLink SkinID="hlAddNew" ID="hlAddNew" NavigateUrl="~/AdminPanel/GRI_Grievance/GrievanceAddEdit.aspx" runat="server"></asp:HyperLink>
 									<div class="btn-group" runat="server" id="Div_ExportOption" visible="false">
 										<button class="btn dropdown-toggle" data-toggle="dropdown">
 											Export <i class="fa fa-angle-down"></i>
