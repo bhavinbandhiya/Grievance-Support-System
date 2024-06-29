@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 //using GrievanceSystem.BAL;
 using System.Data.SqlTypes;
+using GrievanceSystemDetails.BAL;
 //using GrievanceSystem.ENT;
 
 namespace GrievanceSystem
@@ -35,6 +36,17 @@ namespace GrievanceSystem
             ddl.Items.Insert(6, new ListItem("Fear", "6"));
             ddl.Items.Insert(7, new ListItem("Greed", "7"));
             ddl.DataBind();
+        }
+
+        public static void FillDropDownListDepartment(DropDownList ddl)
+        {
+            MST_DepartmentBAL balMST_Department = new MST_DepartmentBAL();
+            DataTable dtDepartment = balMST_Department.SelectAll();
+            ddl.DataSource = dtDepartment;
+            ddl.DataTextField = "DepartmentName";
+            ddl.DataValueField = "DepartmentID";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("Select Department", "-99"));
         }
     }
 }

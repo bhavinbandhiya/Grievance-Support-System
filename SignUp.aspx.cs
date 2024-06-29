@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using GrievanceSystemDetails.BAL;
 using GrievanceSystemDetails.ENT;
+using System.Data;
 
 public partial class SignUp : System.Web.UI.Page
 {
@@ -14,8 +15,27 @@ public partial class SignUp : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "SignUp - " + CV.DefaultCompanyName;
+
+        if (!Page.IsPostBack)
+        {
+            #region 11.3 DropDown List Fill Section
+
+            FillDropDownList();
+
+            #endregion 11.3 DropDown List Fill Section
+        }
     }
+
     #endregion PageLoad
+
+    #region 13.0 Fill DropDownList
+
+    private void FillDropDownList()
+    {
+        CommonFillMethods.FillDropDownListDepartment(ddlDepartmentID);
+    }
+
+    #endregion 13.0 Fill DropDownList
 
     #region 15.0 Save Button Event
     protected void lbtnSignIn_Click(object sender, EventArgs e)
@@ -52,24 +72,17 @@ public partial class SignUp : System.Web.UI.Page
 
                 #region 15.2 Gather Data
 
-
                 if (txtUsername.Text.Trim() != String.Empty)
                     entSEC_UserENT.UserName = Convert.ToString(txtUsername.Text.Trim());
 
                 if (txtPassword.Text.Trim() != String.Empty)
                     entSEC_UserENT.Password = Convert.ToString(txtPassword.Text.Trim());
 
-                if (txtRemarks.Text.Trim() != String.Empty)
-                    entSEC_UserENT.Remarks = Convert.ToString(txtRemarks.Text.Trim());
-
-
                 entSEC_UserENT.Created = DateTime.Now;
 
                 entSEC_UserENT.Modified = DateTime.Now;
 
-
                 #endregion 15.2 Gather Data
-
 
                 #region 15.3 Insert,Update,Copy
 
@@ -79,9 +92,7 @@ public partial class SignUp : System.Web.UI.Page
                     ClearControls();
                 }
 
-
                 #endregion 15.3 Insert,Update,Copy
-
             }
             catch (Exception ex)
             {
@@ -97,7 +108,6 @@ public partial class SignUp : System.Web.UI.Page
     {
         txtPassword.Text = String.Empty;
         txtUsername.Text = String.Empty;
-        txtRemarks.Text = String.Empty;
     }
 
     #endregion ClearControl

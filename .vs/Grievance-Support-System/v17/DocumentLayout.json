@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Odoo\\Grievance-Support-System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|d:\\odoo\\grievance-support-system\\adminpanel\\gri_grievance\\grievanceaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|solutionrelative:adminpanel\\gri_grievance\\grievanceaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|d:\\odoo\\grievance-support-system\\app_code\\bal\\gri_grievancebal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|solutionrelative:app_code\\bal\\gri_grievancebal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|d:\\odoo\\grievance-support-system\\adminpanel\\gri_grievance\\grievancelist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|solutionrelative:adminpanel\\gri_grievance\\grievancelist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|d:\\odoo\\grievance-support-system\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|solutionrelative:default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|d:\\odoo\\grievance-support-system\\adminpanel\\gri_grievance\\grievancelist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|solutionrelative:adminpanel\\gri_grievance\\grievancelist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|d:\\odoo\\grievance-support-system\\adminpanel\\gri_grievance\\grievanceaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|solutionrelative:adminpanel\\gri_grievance\\grievanceaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|d:\\odoo\\grievance-support-system\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A58D15A-D5B1-462E-A134-A28839AC5CCD}|D:\\Odoo\\Grievance-Support-System|solutionrelative:default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "D:\\Odoo\\Grievance-Support-System\\Default.aspx",
+              "RelativeDocumentMoniker": "Default.aspx",
+              "ToolTip": "D:\\Odoo\\Grievance-Support-System\\Default.aspx",
+              "RelativeToolTip": "Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-29T09:39:13.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Default.aspx.cs",
+              "DocumentMoniker": "D:\\Odoo\\Grievance-Support-System\\Default.aspx.cs",
+              "RelativeDocumentMoniker": "Default.aspx.cs",
+              "ToolTip": "D:\\Odoo\\Grievance-Support-System\\Default.aspx.cs",
+              "RelativeToolTip": "Default.aspx.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE0AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T09:39:28.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GrievanceAddEdit.aspx",
+              "DocumentMoniker": "D:\\Odoo\\Grievance-Support-System\\AdminPanel\\GRI_Grievance\\GrievanceAddEdit.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\GRI_Grievance\\GrievanceAddEdit.aspx",
+              "ToolTip": "D:\\Odoo\\Grievance-Support-System\\AdminPanel\\GRI_Grievance\\GrievanceAddEdit.aspx",
+              "RelativeToolTip": "AdminPanel\\GRI_Grievance\\GrievanceAddEdit.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-29T09:46:20.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GrievanceAddEdit.aspx.cs",
+              "DocumentMoniker": "D:\\Odoo\\Grievance-Support-System\\AdminPanel\\GRI_Grievance\\GrievanceAddEdit.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\GRI_Grievance\\GrievanceAddEdit.aspx.cs",
+              "ToolTip": "D:\\Odoo\\Grievance-Support-System\\AdminPanel\\GRI_Grievance\\GrievanceAddEdit.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\GRI_Grievance\\GrievanceAddEdit.aspx.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAArwGYAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T09:47:36.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GrievanceList.aspx",
+              "DocumentMoniker": "D:\\Odoo\\Grievance-Support-System\\AdminPanel\\GRI_Grievance\\GrievanceList.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\GRI_Grievance\\GrievanceList.aspx",
+              "ToolTip": "D:\\Odoo\\Grievance-Support-System\\AdminPanel\\GRI_Grievance\\GrievanceList.aspx",
+              "RelativeToolTip": "AdminPanel\\GRI_Grievance\\GrievanceList.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-29T09:48:29.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GrievanceList.aspx.cs",
+              "DocumentMoniker": "D:\\Odoo\\Grievance-Support-System\\AdminPanel\\GRI_Grievance\\GrievanceList.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\GRI_Grievance\\GrievanceList.aspx.cs",
+              "ToolTip": "D:\\Odoo\\Grievance-Support-System\\AdminPanel\\GRI_Grievance\\GrievanceList.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\GRI_Grievance\\GrievanceList.aspx.cs",
+              "ViewState": "AQIAAIcBAAAAAAAAAAArwI8BAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T09:54:22.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GRI_GrievanceBAL.cs",
+              "DocumentMoniker": "D:\\Odoo\\Grievance-Support-System\\App_Code\\BAL\\GRI_GrievanceBAL.cs",
+              "RelativeDocumentMoniker": "App_Code\\BAL\\GRI_GrievanceBAL.cs",
+              "ToolTip": "D:\\Odoo\\Grievance-Support-System\\App_Code\\BAL\\GRI_GrievanceBAL.cs",
+              "RelativeToolTip": "App_Code\\BAL\\GRI_GrievanceBAL.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T10:05:03.247Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
