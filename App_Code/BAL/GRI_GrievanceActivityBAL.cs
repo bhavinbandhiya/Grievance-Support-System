@@ -94,10 +94,10 @@ namespace GrievanceSystemDetails.BAL
 
         #region SelectOperation
 
-        public DataTable SelectAll()
+        public DataTable SelectByGrievanceID(SqlInt32 GrievanceActivityID)
         {
             GRI_GrievanceActivityDAL dalGRI_GrievanceActivity = new GRI_GrievanceActivityDAL();
-            DataTable dtGRI_GrievanceActivity = new DataTable();
+            DataTable dtGRI_GrievanceActivity = dalGRI_GrievanceActivity.SelectByGrievanceID(GrievanceActivityID);
 
             if (dtGRI_GrievanceActivity != null)
             {
