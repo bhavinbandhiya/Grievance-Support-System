@@ -1,5 +1,6 @@
 ﻿using GrievanceSystemDetails.DAL;
 using GrievanceSystemDetails.ENT;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
 using System.Data;
 using System.Data.SqlTypes;
@@ -121,6 +122,22 @@ namespace GrievanceSystemDetails.BAL
             DataTable dtGRI_Grievance = dalGRI_Grievance.SelectForGrievanceAdministrator(FromDate, ToDate, Status, DepartmentID, EmployeeID);
 
 			if (dtGRI_Grievance != null)
+            {
+                return dtGRI_Grievance;
+            }
+            else
+            {
+                this.Message = dalGRI_Grievance.Message;
+                return null;
+            }
+        }
+
+        public DataTable SelectForDepartmentDashboard(SqlInt32 Offset, SqlInt32 PageRecordSize, out int TotalRecords,SqlDateTime FromDate, SqlDateTime ToDate, SqlInt32 UserID,SqlString GrievanceStatus)
+        {
+            GRI_GrievanceDAL dalGRI_Grievance = new GRI_GrievanceDAL();
+            DataTable dtGRI_Grievance = dalGRI_Grievance.SelectForDepartmentDashboard(Offset, PageRecordSize, out TotalRecords, FromDate, ToDate, UserID, GrievanceStatus);
+
+            if (dtGRI_Grievance != null)
             {
                 return dtGRI_Grievance;
             }
